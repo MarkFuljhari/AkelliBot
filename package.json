@@ -1,0 +1,22 @@
+{
+  "name": "akelli-bot",
+  "version": "1.0.0",
+  "description": "This is a code of Akelli Bot which is made by Akelli Company",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheBestGamerYT/AkelliBot.git"
+  },
+  "author": "TheBestGamerYT and MarkFuljhari",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheBestGamerYT/AkelliBot/issues"
+  },
+  "homepage": "https://github.com/TheBestGamerYT/AkelliBot#readme",
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  }
+}
