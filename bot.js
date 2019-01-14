@@ -22,7 +22,10 @@ client.on('ready', () => {
     .catch(console.error);
   });
 
-client.on('message', msg => {
+client.on('message', async msg => {
+    const args = msg.content.slice(prefix.length).trim().split(/ +/g);
+    var argresult = args.join(' ');
+    
   if (msg.content === 'ping') {
     msg.reply('Pong!');
   }
