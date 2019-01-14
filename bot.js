@@ -38,16 +38,14 @@ client.on('message', async msg => {
     m.edit(`Pong! Latency is **${m.createdTimestamp - msg.createdTimestamp}**ms. API Latency is **${Math.round(client.ping)}**ms`);
   }
 
-  if (msg.content.startsWith(prefix + 'help')) {
+ if (msg.content.startsWith(prefix + 'help')) {
     msg.channel.send({embed:{
-  "plainText": "AkelliBot Commands\n-----------------------------\n» Server Owner (Level 3)\nHas access to all of the commands.\n» Server Administrator (Level 2)\n ban, unban, kick.\n» Server Moderator (Level 1)\n mute, unmute, warn.\n» Server Member (Level 0)\n help, ping, avatar, play, search, stop.\n-----------------------------\n\nExpect more commands to be added soon upon future developement !",
-  "color": 53380,
-  "footer": {
-    "text": "© Copyright Akelli Company 2019"
-  }
+  "title": "Akelli Bot Help Page !",
+  "description": "Commands:\n**-----------------------------**\n**»** `Server Owner (Level 3)`\nHas access to all of the commands.\n**»** `Server Administrator (Level 2)`\n ban, unban, kick.\n**»** `Server Moderator (Level 1)`\n mute, unmute, warn.\n» `Server Member (Level 0)`\n help, ping, avatar, play, search, stop.\n**-----------------------------**\n\nExpect more commands to be added soon upon future developement !\n\n**---------{**© Copyright Akelli Company 2019**}---------**",
+  "color": 53380
 }
     });
-   }
+}
     
 });
 
