@@ -17,8 +17,8 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
     console.log('I am online !');
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-    client.user.setActivity(`a$ help | ${client.guilds.size} Servers`, { type: 'PLAYING' })
-    .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : `a$ help | ${client.guilds.size} Servers`}`))
+    client.user.setActivity(`!akelli help | ${client.guilds.size} Servers`, { type: 'PLAYING' })
+    .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : `!akelli help | ${client.guilds.size} Servers`}`))
     .catch(console.error);
   });
 
