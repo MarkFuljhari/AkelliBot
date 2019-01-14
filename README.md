@@ -14,4 +14,4 @@ Our Moto: Never Give Up Cuz We Are Stronger Together !
 
 Having trouble with bot? Check out our [Discord](https://discord.me/akellibot) and contact our support there.
 
-                                    © Akelli Company 2019
+                                    © Copyright Akelli Company 2019
