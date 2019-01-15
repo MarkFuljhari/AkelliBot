@@ -40,9 +40,18 @@ client.on('message', async msg => {
 
  if (msg.content.startsWith(prefix + 'help')) {
     msg.channel.send({embed:{
-  "title": "Akelli Bot Help Page !",
-  "description": "Commands:\n**-----------------------------**\n**»** `Server Owner (Level 3)`\nHas access to all of the commands.\n**»** `Server Administrator (Level 2)`\n ban, unban, kick.\n**»** `Server Moderator (Level 1)`\n mute, unmute, warn.\n» `Server Member (Level 0)`\n help, ping, avatar, play, search, stop.\n**-----------------------------**\n\nExpect more commands to be added soon upon future developement !\n\n**---------{**© Copyright Akelli Company 2019**}---------**",
-  "color": 53380
+  "title": "My Commands:",
+      "description": "**-----------------------------**\n**»** `Server Owner (Level 3)`\nHas access to all of the commands.\n**»** `Server Administrator (Level 2)`\n ban, unban, kick.\n**»** `Server Moderator (Level 1)`\n mute, unmute, warn.\n» `Server Member (Level 0)`\n help, ping, avatar, play, search, stop.\n**-----------------------------**\n\nExpect more commands to be added soon upon future developement !",
+      "color": 6402937,
+      "timestamp": "2019-01-15T18:23:37.774Z",
+      "footer": {
+        "text": "©️ Copyright Akelli Company 2019"
+      },
+      "author": {
+        "name": "Akelli",
+        "url": "https://thebestgameryt.github.io/AkelliBot/",
+        "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      }
 }
     });
 }
