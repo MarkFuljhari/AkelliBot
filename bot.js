@@ -43,17 +43,49 @@ client.on('message', async msg => {
   "title": "My Commands:",
       "description": "**-----------------------------**\n**»** `Server Owner (Level 3)`\nHas access to all of the commands.\n**»** `Server Administrator (Level 2)`\n ban, unban, kick.\n**»** `Server Moderator (Level 1)`\n mute, unmute, warn.\n» `Server Member (Level 0)`\n help, ping, avatar, play, search, stop.\n**-----------------------------**\n\nExpect more commands to be added soon upon future developement !",
       "color": 6402937,
-      "timestamp": "2019-01-15T18:23:37.774Z",
       "footer": {
         "text": "©️ Copyright Akelli Company 2019"
       },
       "author": {
         "name": "Akelli",
         "url": "https://thebestgameryt.github.io/AkelliBot/",
-        "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png"
+        "icon_url": "https://cdn.discordapp.com/avatars/534003592542027786/10199bbc68d2c69dea28e76772e175ba.png?size=2048"
       }
 }
     });
+}
+    if (msg.content.startsWith(prefix + 'myavatar')){
+    msg.member.send(msg.author.avatarURL);
+    msg.reply('Check your dms !');
+  }
+  if (msg.content.startsWith(prefix + 'avatar')){
+    let member = msg.mentions.members.first();
+    msg.member.send(member.user.displayAvatarURL);
+    msg.reply('Check your dms !');
+  }
+  if (msg.content.startsWith(prefix + 'social')){
+  msg.channel.send({embed:{
+    "plainText": "**My Social Media:**",
+    "title": "• Instagram",
+    "description": "https://www.instagram.com/akellicompany/",
+    "color": 53380,
+    "footer": {
+      "text": "©️ Copyright Akelli Company 2019"
+    },
+    "fields": [
+      {
+        "name": "• Twitter",
+        "value": "https://www.twitter.com/akellicompany",
+        "inline": false
+      },
+      {
+        "name": "• Discord",
+        "value": "https://www.discord.me/akellibot",
+        "inline": false
+      }
+    ]
+  }
+});
 }
     
 });
