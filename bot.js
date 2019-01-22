@@ -56,7 +56,7 @@ client.on('message', async msg => {
 }
     if (msg.content.startsWith(prefix + 'myavatar')){
     msg.member.send(msg.author.avatarURL);
-    msg.reply('Check your dms !');
+    msg.reply(', I will send you a private message!👍');
   }
   if (msg.content.startsWith(prefix + 'avatar')){
     let member = msg.mentions.members.first();
