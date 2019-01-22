@@ -3,12 +3,13 @@ const Discord = require('discord.js'); //This one tells you that constant with t
 const client = new Discord.Client(); //This one here tells you that constant with the name client in order to work requires a new Discord client which basicly means that it creates a new client/bot/user
 // This is prefix beeing used in front of the commands for Example: !akelli ping here !akelli is the prefix and ping is the command that had been used
 var prefix = "!akelli ";
-// GREET JOIN MESSAGE
+
+// GREET COMMANDS
 client.on('guildMemberAdd', member => {
     let guild = member.guild;
     guild.defaultChannel.sendMessage(`Please welcome ${member} to the server!`);
   });
-// GREET LEAVE MESSAGE  
+
   client.on('guildMemberRemove', member => {
     let guild = member.guild;
     guild.defaultChannel.sendMessage(`Please say goodbye to ${member} we will miss you!`);
@@ -26,6 +27,7 @@ client.on('ready', () => {
 client.on('message', async msg => {
     const args = msg.content.slice(prefix.length).trim().split(/ +/g);
     var argresult = args.join(' ');
+    
  // EXAMPLE COMMAND    
  // if (msg.content === 'example') { // the { here signs the start of the scope(of the if sentence)
 //    msg.reply('This is an example command!');
@@ -34,12 +36,13 @@ client.on('message', async msg => {
   if(msg.author.bot) return; //This here means that if message was sent from the other bots expect Akelli, our bot(Akelli) won't sent anything in the chat(thats whay return is there e.g return, returns you to somewhere or something) this prevents bot-ception(when multiple bots were to use same prefix)
 
   if(msg.content.indexOf(prefix) !== 0) return;
+    
 // PING COMMAND - MISC CMDS
   if (msg.content.startsWith(prefix + 'ping')) {
     const m = await msg.channel.send("Ping ?");
     m.edit(`Pong! Latency is **${m.createdTimestamp - msg.createdTimestamp}**ms. API Latency is **${Math.round(client.ping)}**ms`);
   }
-// HELP COMMAND - MISC CMDS
+// BOT HELP COMMAND - MISC CMDS
  if (msg.content.startsWith(prefix + 'help')) {
     msg.channel.send({embed:{
   "title": "My commands:",
@@ -56,18 +59,18 @@ client.on('message', async msg => {
 }
     });
 }
-// MY AVATAR COMMAND - MISC CMDS
+// USER AVATAR COMMANDS - MISC CMDS
     if (msg.content.startsWith(prefix + 'myavatar')){
     msg.member.send(msg.author.avatarURL);
     msg.reply('I will send you a private message!👍');
   }
-// AVATAR COMMAND - MISC CMDS
+
     if (msg.content.startsWith(prefix + 'avatar')){
     let member = msg.mentions.members.first();
     msg.member.send(member.user.displayAvatarURL);
     msg.reply('I will send you a private message!👍');
   }
-// SOCIAL COMMAND - MISC CMDS
+// BOT INFORMATION - MISC CMDS
   if (msg.content.startsWith(prefix + 'social')){
   msg.channel.send({embed:{
     "plainText": "**My Social Media:**",
@@ -100,7 +103,7 @@ client.on('message', async msg => {
   }
 });
 }
- // SETGAME COMMAND - ADMIN/MODERATOR CMDS   
+ // ADMIN & MODERATOR COMMANDS - AkelliCompany MANAGEMENT & STAFF ONLY
     if (msg.content.startsWith(prefix + 'setgame')) {
     if(!msg.member.roles.some(r=>["Akelli Admin","Akelli Moderator"].includes(r.name)) )
     return msg.reply("sorry! You don't have access to execute this command! ⚠️");
