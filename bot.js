@@ -75,7 +75,7 @@ client.on('message', async msg => {
     "fields": [
         
         {
-        "name": "•Instagram",
+        "name": "• Instagram",
         "value": "https://www.instagram.com/akellicompany",
         "inline": false
       },
