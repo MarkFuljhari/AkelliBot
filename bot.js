@@ -78,7 +78,7 @@ client.on('message', async msg => {
         "name": "•Instagram",
         "value": "https://www.instagram.com/akellicompany",
         "inline": false
-      }
+      },
         
       {
         "name": "• Twitter",
