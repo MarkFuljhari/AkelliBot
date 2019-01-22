@@ -2,7 +2,7 @@
 
 ### About
 
-Akelli bot is very intelligent bot made by Akelli Company that is owned by Mark Fuljhari.
+Akelli bot is very intelligent bot made by Akelli Company that is owned by [Mark Fuljhari](https://github.com/MarkFuljhari).
 Founded in 2019 Akelli Company is a very young and new discord bot company.
 We are inspired by inovation and together we achieved many things and many more of them are yet still to come.
 Persistent perfection is what we are after.
