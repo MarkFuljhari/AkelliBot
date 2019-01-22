@@ -67,7 +67,7 @@ client.on('message', async msg => {
   msg.channel.send({embed:{
     "plainText": "**My Social Media:**",
     "title": "AkelliBot\'s Social Media accounts",
-    "description": "•Instagram \https://www.instagram.com/akellicompany/",
+    "description": "",
     "color": 53380,
     "footer": {
       "text": "©️ Copyright Akelli Company 2019"
