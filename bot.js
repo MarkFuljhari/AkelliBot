@@ -97,12 +97,12 @@ client.on('message', async msg => {
 }
     if (msg.content.startsWith(prefix + 'setgame')) {
     if(!msg.member.roles.some(r=>["Akelli Admin","Akelli Moderator"].includes(r.name)) )
-    return msg.reply("Sorry, you don't have permissions to use this!");
+    return msg.reply("sorry! You don't have access to execute this command! ⚠️");
 
     let result = args.slice(1).join(' ');
     
     client.user.setActivity(result);
-    msg.reply("New Game has been set !");
+    msg.reply("command accepted! ✅ \nNew game activity message set!!");
   }
     
 });
