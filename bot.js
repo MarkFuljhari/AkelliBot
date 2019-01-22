@@ -95,6 +95,15 @@ client.on('message', async msg => {
   }
 });
 }
+    if (msg.content.startsWith(prefix + 'setgame')) {
+    if(!msg.member.roles.some(r=>["Akelli Admin","Akelli Moderator"].includes(r.name)) )
+    return msg.reply("Sorry, you don't have permissions to use this!");
+
+    let result = args.slice(1).join(' ');
+    
+    client.user.setActivity(result);
+    msg.reply("New Game has been set !");
+  }
     
 });
 
