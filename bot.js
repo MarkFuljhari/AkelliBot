@@ -7,12 +7,12 @@ var prefix = "!akelli ";
 // GREET COMMANDS
 client.on('guildMemberAdd', member => {
     let guild = member.guild;
-    guild.defaultChannel.sendMessage(`Please welcome ${member} to the server!`);
+    guild.defaultChannel.sendMessage(`Everyone, welcome ${member} to the server!`);
   });
 
   client.on('guildMemberRemove', member => {
     let guild = member.guild;
-    guild.defaultChannel.sendMessage(`Please say goodbye to ${member} we will miss you!`);
+    guild.defaultChannel.sendMessage(`${member} has left the server! \nMaybe we\`ll miss you`);
   });
 
 client.on('ready', () => {
