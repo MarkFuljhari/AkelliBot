@@ -2,7 +2,7 @@
 const Discord = require('discord.js'); //This one tells you that constant with the name Discord in order to work requires discord.js library
 const client = new Discord.Client();   //This one here tells you that constant with the name client in order to work requires a new Discord client which basicly means that it creates a new client/bot/user
 
-// BOT PREFIX : EX: a!help , b!help , !akelli help
+// BOT PREFIX : EX: a!help , b!help , !akelli
 var prefix = "!akelli ";
 
 // GREET COMMANDS
