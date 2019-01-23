@@ -60,7 +60,7 @@ client.on('message', async msg => {
 }
     });
 }
-// USER INFO & AVATAR COMMANDS - MISC CMDS
+// USER COMMANDS: AVATAR ETC. - MISC CMDS
     if (msg.content.startsWith(prefix + 'myavatar')){
     msg.member.send(msg.author.avatarURL);
     msg.reply('I will send you your profile picture!👍');
