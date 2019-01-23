@@ -1,7 +1,8 @@
 // This two lines are constants the stuff that you need in order for bot to run should be all declared on the begging of the code
 const Discord = require('discord.js'); //This one tells you that constant with the name Discord in order to work requires discord.js library
-const client = new Discord.Client(); //This one here tells you that constant with the name client in order to work requires a new Discord client which basicly means that it creates a new client/bot/user
-// This is prefix beeing used in front of the commands for Example: !akelli ping here !akelli is the prefix and ping is the command that had been used
+const client = new Discord.Client();   //This one here tells you that constant with the name client in order to work requires a new Discord client which basicly means that it creates a new client/bot/user
+
+// BOT PREFIX : EX: a!help , b!help , !akelli help
 var prefix = "!akelli ";
 
 // GREET COMMANDS
