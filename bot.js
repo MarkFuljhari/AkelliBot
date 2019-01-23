@@ -69,7 +69,7 @@ client.on('message', async msg => {
     if (msg.content.startsWith(prefix + 'avatar')){
     let member = msg.mentions.members.first();
     msg.member.send(member.user.displayAvatarURL);
-    msg.reply('that user\'s profile picture shall be send to you!✅');
+    msg.reply('that user\'s profile picture shall be send to you! ✅');
   }
 // BOT INFORMATION - MISC CMDS
   if (msg.content.startsWith(prefix + 'socialmedia')){
@@ -112,7 +112,7 @@ client.on('message', async msg => {
     let result = args.slice(1).join(' ');
     
     client.user.setActivity(result);
-    msg.reply("command accepted! ✅ \nRequested activity message set!👍");
+    msg.reply("command accepted! ✅ \n⭕ Requested activity message set!👍");
   }
     
 });
