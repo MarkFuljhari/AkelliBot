@@ -69,17 +69,17 @@ client.on('message', async msg => {
     if (msg.content.startsWith(prefix + 'avatar')){
     let member = msg.mentions.members.first();
     msg.member.send(member.user.displayAvatarURL);
-    msg.reply('I shall sent you the profile picture of ${member}');
+    msg.reply('that user\'s profile picture shall be send to you!✅');
   }
 // BOT INFORMATION - MISC CMDS
-  if (msg.content.startsWith(prefix + 'social')){
+  if (msg.content.startsWith(prefix + 'socialmedia')){
   msg.channel.send({embed:{
     "plainText": "**My Social Media:**",
     "title": "AkelliBot\'s Social Media accounts",
     "description": "",
     "color": 53380,
     "footer": {
-      "text": "©️ Copyright Akelli Company 2019"
+      "text": "©️ Copyright Akelli Company 2019, @akellicompany"
     },
     "fields": [
         
