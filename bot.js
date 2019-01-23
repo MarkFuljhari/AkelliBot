@@ -69,7 +69,7 @@ client.on('message', async msg => {
     if (msg.content.startsWith(prefix + 'avatar')){
     let member = msg.mentions.members.first();
     msg.member.send(member.user.displayAvatarURL);
-    msg.reply('I have sent you a private message!👍');
+    msg.reply('I shall sent you the profile picture of ${member}');
   }
 // BOT INFORMATION - MISC CMDS
   if (msg.content.startsWith(prefix + 'social')){
