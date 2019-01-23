@@ -106,7 +106,7 @@ client.on('message', async msg => {
 }
  // ADMIN & MODERATOR COMMANDS - AkelliCompany MANAGEMENT & STAFF ONLY
     if (msg.content.startsWith(prefix + 'setgame')) {
-    if(!msg.member.roles.some(r=>["Akelli Admin","Akelli Moderator"].includes(r.name)) )
+    if(!msg.member.roles.some(r=>["AC Management","Akelli BotMod"].includes(r.name)) )
     return msg.reply("error! You don't have sufficient access to execute this command! ⚠️ \n Requirement: Management Team or Staff Moderator");
 
     let result = args.slice(1).join(' ');
