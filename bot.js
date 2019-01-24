@@ -112,7 +112,7 @@ client.on('message', async msg => {
     let result = args.slice(1).join(' ');
     
     client.user.setActivity(result);
-    msg.reply("command accepted! ✅ \n⭕ Requested activity message set!👍");
+    msg.reply("command accepted! ✅ \nRequested activity message set!👍");
   }
     
 });
