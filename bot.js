@@ -13,7 +13,7 @@ client.on('guildMemberAdd', member => {
 
   client.on('guildMemberRemove', member => {
     let guild = member.guild;
-    guild.defaultChannel.sendMessage(`${member} has left the server!`);
+    guild.defaultChannel.sendMessage(`${member} left!`);
   });
 
 client.on('ready', () => {
