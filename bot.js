@@ -47,7 +47,7 @@ client.on('message', async msg => {
  if (msg.content.startsWith(prefix + 'help')) {
     msg.channel.send({embed:{
   "title": "My commands:",
-      "description": "",
+      "description": "》Music commands🎶: \n**COMING SOON** \n\n》Administration commands📈:\n**COMING SOON** \n\n》User information \navatar <@user> - Sends you the user\'s profile picture \nmyavatar - Sends your profile picture to you \n\n》Bot information🤖:\nping - Displays bot\'s latency and DiscordApp API \n\nAkelli Company: \nsetgame - Changes the game activity status of the bot",
       "color": 6402937,
       "footer": {
         "text": "©️ Copyright Akelli Company 2019"
