@@ -47,7 +47,7 @@ client.on('message', async msg => {
  if (msg.content.startsWith(prefix + 'help')) {
     msg.channel.send({embed:{
   "title": "My commands:",
-      "description": "**》🎶Music:**\n  COMING SOON \n\n**》📈Administration:**\n  COMING SOON \n\n**》👥 User information:** \navatar <@user> - Sends you the user\'s profile picture. \nmyavatar - Sends your profile picture to you. \n\n**》🤖 Bot information:**\nhelp - Shows this message. \nping - Displays bot\'s latency and DiscordApp API \n\n**》🏢 Akelli Company:** \n**Management Team & Staff Moderators**:\nsetgame - Changes the game activity status of the bot.",
+      "description": "**》🎶Music:**\n  COMING SOON \n\n**》📈Administration:**\navatar <@user> - Sends you the user\'s profile picture. \nmyavatar - Sends your profile picture to you. \n\n**》🤖 Bot information:**\nhelp - Shows this message. \nping - Displays bot\'s latency and DiscordApp API \n\n**》🏢 Akelli Company:** \n**Management Team & Staff Moderators**:\nsetgame - Changes the game activity status of the bot.",
       "color": 6402937,
       "footer": {
         "text": "©️ Copyright Akelli Company 2019"
@@ -112,7 +112,7 @@ client.on('message', async msg => {
     let result = args.slice(1).join(' ');
     
     client.user.setActivity(result);
-    msg.reply("command accepted! ✅ \nRequested activity message set!👍");
+    msg.reply("command accepted! ✅ \nRequested activity message set!");
   }
     
 });
