@@ -3,7 +3,7 @@ const Discord = require('discord.js'); //This one tells you that constant with t
 const client = new Discord.Client();   //This one here tells you that constant with the name client in order to work requires a new Discord client which basicly means that it creates a new client/bot/user
 
 // BOT PREFIX : EX: a!help , b!help , !akelli
-var prefix = "!akelli ";
+var prefix = "a!";
 
 // GREET COMMANDS
 client.on('guildMemberAdd', member => {
@@ -20,8 +20,8 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
     console.log('I am online !');
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-    client.user.setActivity(`!akelli help | ${client.guilds.size} Servers`, { type: 'PLAYING' })
-    .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : `!akelli help | ${client.guilds.size} Servers`}`))
+    client.user.setActivity(`a!help | ${client.guilds.size} Servers`, { type: 'PLAYING' })
+    .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : `a!help | ${client.guilds.size} Servers`}`))
     .catch(console.error);
   });
 
