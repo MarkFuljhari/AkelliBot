@@ -49,8 +49,8 @@ client.on('message', async msg => {
 // BOT HELP COMMAND - MISC CMDS
  if (msg.content.startsWith(prefix + 'help')) {
     msg.channel.send({embed:{
-  "title": "Commands: (usage: a!<command>",
-      "description": "》:notes:Music:\n  COMING SOON \n\n》:chart_with_upwards_trend:Administration:\navatar <@user> - Sends you the user's profile picture. \nmyavatar - Sends you your profile picture. \n\n》:robot: Information:\nhelp - Shows this message. \nping - Displays bot's latency and DiscordApp API \n\n》:office: Akelli Company: \nsetgame - Changes the game activity status of the bot.",
+  "title": "Commands: (usage: a!<command>)",
+      "description": "**》:notes:Music:** \n  COMING SOON \n\n**》:chart_with_upwards_trend:Administration:**\navatar <@user> - Sends you the user's profile picture. \nmyavatar - Sends you your profile picture. \n\n**》:robot: Information:**\nhelp - Shows this message. \nping - Displays bot's latency and DiscordApp API \n\n**》:office: Akelli Company:** \nsetgame - Changes the game activity status of the bot.",
       "color": 6402937,
       "footer": {
         "text": "©? Copyright Akelli Company 2019"
