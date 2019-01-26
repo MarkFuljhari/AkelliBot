@@ -41,11 +41,7 @@ client.on('message', async msg => {
 
   if(msg.content.indexOf(prefix) !== 0) return;
     
-// PING COMMAND - MISC CMDS
-  if (msg.content.startsWith(prefix + 'ping')) {
-    const m = await msg.channel.send("Ping ");
-    m.edit(`Pong! Latency: **${m.createdTimestamp - msg.createdTimestamp}**ms. API Latency: **${Math.round(client.ping)}**ms`);
-  }
+    
 // BOT HELP COMMAND - MISC CMDS
  if (msg.content.startsWith(prefix + 'help')) {
     msg.channel.send({embed:{
@@ -65,7 +61,7 @@ client.on('message', async msg => {
 }
     
     
-// USER INFO & AVATAR COMMANDS - MISC CMDS
+// ADMINISTRATION & FUN COMMANDS - MISC CMDS
     if (msg.content.startsWith(prefix + 'myavatar')){
     msg.member.send(msg.author.avatarURL);
     msg.reply('I will send you your profile picture!');
@@ -110,7 +106,13 @@ client.on('message', async msg => {
     ]
   }
 });
-}
+
+    //PING COMMAND - MISC CMDS
+  if (msg.content.startsWith(prefix + 'ping')) {
+    const m = await msg.channel.send("Ping ");
+    m.edit(`Pong! Latency: **${m.createdTimestamp - msg.createdTimestamp}**ms. API Latency: **${Math.round(client.ping)}**ms`);
+  }
+    
  // ADMIN & MODERATOR COMMANDS - AkelliCompany MANAGEMENT & STAFF ONLY
     if (msg.content.startsWith(prefix + 'setgame')) {
     if(!msg.member.roles.some(r=>["AC Management","AkelliBot Mod"].includes(r.name)) )
