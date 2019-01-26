@@ -1,9 +1,8 @@
 // This two lines are constants the stuff that you need in order for bot to run should be all declared on the begging of the code
 const Discord = require('discord.js'); //This one tells you that constant with the name Discord in order to work requires discord.js library
-const client = new Discord.Client();   //This one here tells you that constant with the name client in order to work requires a new Discord client which basicly means that it creates a new client/bot/user
-
-// BOT PREFIX : EX: a!help , b!help , !akelli
-var prefix = "a!";
+const client = new Discord.Client(); //This one here tells you that constant with the name client in order to work requires a new Discord client which basicly means that it creates a new client/bot/user
+// This is prefix beeing used in front of the commands for Example: !akelli ping here !akelli is the prefix and ping is the command that had been used
+var prefix = "!akelli ";
 
 // GREET COMMANDS
 client.on('guildMemberAdd', member => {
@@ -15,15 +14,13 @@ client.on('guildMemberAdd', member => {
     let guild = member.guild;
     guild.defaultChannel.sendMessage(`${member} has left the server!`);
   });
- 
-//
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
     console.log('I am online !');
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-    client.user.setActivity(`a!help | ${client.guilds.size} Servers`, { type: 'PLAYING' })
-    .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : `a!help | ${client.guilds.size} Servers`}`))
+    client.user.setActivity(`!akelli help | ${client.guilds.size} Servers`, { type: 'PLAYING' })
+    .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : `!akelli help | ${client.guilds.size} Servers`}`))
     .catch(console.error);
   });
 
@@ -40,14 +37,19 @@ client.on('message', async msg => {
 
   if(msg.content.indexOf(prefix) !== 0) return;
     
+// PING COMMAND - MISC CMDS
+  if (msg.content.startsWith(prefix + 'ping')) {
+    const m = await msg.channel.send("Ping ?");
+    m.edit(`Pong! Latency is **${m.createdTimestamp - msg.createdTimestamp}**ms. API Latency is **${Math.round(client.ping)}**ms`);
+  }
 // BOT HELP COMMAND - MISC CMDS
  if (msg.content.startsWith(prefix + 'help')) {
     msg.channel.send({embed:{
-  "title": "Commands: (usage: a!<command>)",
-      "description": "**》🎶Music:**\n  COMING SOON \n\n**》📈Administration:**\navatar <@user> - Sends you the user\'s profile picture. \nmyavatar - Sends you your profile picture. \n\n**》🤖 Information:**\nhelp - Shows this message. \nping - Displays bot\'s latency and DiscordApp API \n\n**》🏢 Akelli Company:** \nsetgame - Changes the game activity status of the bot.",
+  "title": "My commands:",
+      "description": "**-----------------------------**\n**»** `Server Owner (Level 3)`\nHas access to all of the commands.\n**»** `Server Administrator (Level 2)`\n ban, unban, kick.\n**»** `Server Moderator (Level 1)`\n mute, unmute, warn.\n» `Server Member (Level 0)`\n help, ping, avatar, play, search, stop.\n**-----------------------------**\n\nExpect more commands to be added soon upon future development !",
       "color": 6402937,
       "footer": {
-        "text": "©️ Copyright Akelli Company 2019, @akellicompany"
+        "text": "©? Copyright Akelli Company 2019"
       },
       "author": {
         "name": "Akelli",
@@ -57,26 +59,26 @@ client.on('message', async msg => {
 }
     });
 }
-// USER COMMANDS: AVATAR ETC. - MISC CMDS
+// USER INFO & AVATAR COMMANDS - MISC CMDS
     if (msg.content.startsWith(prefix + 'myavatar')){
     msg.member.send(msg.author.avatarURL);
-    msg.reply('I shall send you your profile picture!👍');
+    msg.reply('I will send you your profile picture!??');
   }
 
     if (msg.content.startsWith(prefix + 'avatar')){
     let member = msg.mentions.members.first();
     msg.member.send(member.user.displayAvatarURL);
-    msg.reply('that user\'s profile picture shall be send to you! ✅');
+    msg.reply('I have sent you a private message!??');
   }
 // BOT INFORMATION - MISC CMDS
-  if (msg.content.startsWith(prefix + 'socialmedia')){
+  if (msg.content.startsWith(prefix + 'social')){
   msg.channel.send({embed:{
     "plainText": "**My Social Media:**",
     "title": "AkelliBot\'s Social Media accounts",
     "description": "",
     "color": 53380,
     "footer": {
-      "text": "©️ Copyright Akelli Company 2019, @akellicompany"
+      "text": "©? Copyright Akelli Company 2019"
     },
     "fields": [
         
@@ -99,22 +101,17 @@ client.on('message', async msg => {
      
     ]
   }
-                    
-    if (msg.content.startsWith(prefix + 'ping')) {
-    const m = await msg.channel.send("Ping ?");
-    m.edit(`Pong! Latency: **${m.createdTimestamp - msg.createdTimestamp}**ms. API Latency: **${Math.round(client.ping)}**ms`);
-  }
 });
 }
  // ADMIN & MODERATOR COMMANDS - AkelliCompany MANAGEMENT & STAFF ONLY
     if (msg.content.startsWith(prefix + 'setgame')) {
-    if(!msg.member.roles.some(r=>["AC Management","Akelli BotMod"].includes(r.name)) )
-    return msg.reply("you don't have sufficient access to execute this command! ⚠️ \nRequirement: Management Team or Staff Moderator");
+    if(!msg.member.roles.some(r=>["Akelli Admin","Akelli Moderator"].includes(r.name)) )
+    return msg.reply("error! You don't have sufficient access to execute this command! ?? \n Requirement: Management Team or Staff Moderator");
 
     let result = args.slice(1).join(' ');
     
     client.user.setActivity(result);
-    msg.reply("command accepted! ✅ \nRequested activity message set!");
+    msg.reply("command accepted! ? \nNew game activity message set!");
   }
     
 });
