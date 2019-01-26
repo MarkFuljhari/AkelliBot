@@ -50,7 +50,7 @@ client.on('message', async msg => {
  if (msg.content.startsWith(prefix + 'help')) {
     msg.channel.send({embed:{
   "title": "Commands: (usage: a!<command>)",
-      "description": "**» Music:** \n  COMING SOON \n\n**» Administration:**\navatar <@user> - Sends you the user's profile picture. \nmyavatar - Sends you your profile picture. \n\n**» Information:**\nhelp - Shows this message. \nping - Displays bot's latency and DiscordApp API \n\n**» Akelli Company:** \nsetgame - Changes the game activity status of the bot.",
+      "description": "**» Music:** \n  COMING SOON \n\n**» Administration:**\navatar <@user> - Sends you the user's profile picture. \nmyavatar - Sends you your profile picture. \n\n**» Information:**\nhelp - Shows this message. \nping - Displays bot's latency and DiscordApp API \nsocialmedia - Shows Team\'s social media. \n\n**» Akelli Company:** \nsetgame - Changes the game activity status of the bot.",
       "color": 6402937,
       "footer": {
         "text": "© Copyright Akelli Company 2019, @akellicompany"
@@ -79,7 +79,7 @@ client.on('message', async msg => {
     
     
 //  INFORMATION COMMANDS - MISC CMDS
-  if (msg.content.startsWith(prefix + 'social')){
+  if (msg.content.startsWith(prefix + 'socialmedia')){
   msg.channel.send({embed:{
     "plainText": "**My Social Media**",
     "title": "AkelliBot\'s Social Media accounts",
