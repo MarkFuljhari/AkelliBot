@@ -113,6 +113,8 @@ client.on('message', async msg => {
 }
 });
 }
+    
+    
  // ADMIN & MODERATOR COMMANDS - AkelliCompany MANAGEMENT & STAFF ONLY
     if (msg.content.startsWith(prefix + 'setgame')) {
     if(!msg.member.roles.some(r=>["AC Management","AkelliBot Mod"].includes(r.name)) )
