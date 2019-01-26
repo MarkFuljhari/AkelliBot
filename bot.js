@@ -41,12 +41,16 @@ client.on('message', async msg => {
 
   if(msg.content.indexOf(prefix) !== 0) return;
     
-    
+// PING COMMAND - MISC CMDS
+  if (msg.content.startsWith(prefix + 'ping')) {
+    const m = await msg.channel.send("Ping ");
+    m.edit(`Pong! Latency: **${m.createdTimestamp - msg.createdTimestamp}**ms. API Latency: **${Math.round(client.ping)}**ms`);
+  }
 // BOT HELP COMMAND - MISC CMDS
  if (msg.content.startsWith(prefix + 'help')) {
     msg.channel.send({embed:{
   "title": "Commands: (usage: a!<command>)",
-      "description": "**》:notes:Music:** \n  COMING SOON \n\n**》:chart_with_upwards_trend:Administration:**\navatar <@user> - Sends you the user's profile picture. \nmyavatar - Sends you your profile picture. \n\n**》:robot: Information:**\nhelp - Shows this message. \nping - Displays bot's latency and DiscordApp API \n\n**》:office: Akelli Company:** \nsetgame - Changes the game activity status of the bot.",
+      "description": "**» Music:** \n  COMING SOON \n\n**» Administration:**\navatar <@user> - Sends you the user's profile picture. \nmyavatar - Sends you your profile picture. \n\n**» Information:**\nhelp - Shows this message. \nping - Displays bot's latency and DiscordApp API \n\n**» Akelli Company:** \nsetgame - Changes the game activity status of the bot.",
       "color": 6402937,
       "footer": {
         "text": "© Copyright Akelli Company 2019, @akellicompany"
@@ -61,7 +65,7 @@ client.on('message', async msg => {
 }
     
     
-// ADMINISTRATION & FUN COMMANDS - MISC CMDS
+// USER INFO & AVATAR COMMANDS - MISC CMDS
     if (msg.content.startsWith(prefix + 'myavatar')){
     msg.member.send(msg.author.avatarURL);
     msg.reply('I will send you your profile picture!');
@@ -82,7 +86,7 @@ client.on('message', async msg => {
     "description": "",
     "color": 53380,
     "footer": {
-      "text": "©? Copyright Akelli Company 2019"
+      "text": "© Copyright Akelli Company 2019"
     },
     "fields": [
         
@@ -106,13 +110,7 @@ client.on('message', async msg => {
     ]
   }
 });
-
-    //PING COMMAND - MISC CMDS
-  if (msg.content.startsWith(prefix + 'ping')) {
-    const m = await msg.channel.send("Ping ");
-    m.edit(`Pong! Latency: **${m.createdTimestamp - msg.createdTimestamp}**ms. API Latency: **${Math.round(client.ping)}**ms`);
-  }
-    
+}
  // ADMIN & MODERATOR COMMANDS - AkelliCompany MANAGEMENT & STAFF ONLY
     if (msg.content.startsWith(prefix + 'setgame')) {
     if(!msg.member.roles.some(r=>["AC Management","AkelliBot Mod"].includes(r.name)) )
