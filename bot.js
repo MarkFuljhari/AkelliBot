@@ -81,36 +81,37 @@ client.on('message', async msg => {
 //  INFORMATION COMMANDS - MISC CMDS
   if (msg.content.startsWith(prefix + 'socialmedia')){
   msg.channel.send({embed:{
-    "plainText": "**My Social Media**",
-    "title": "AkelliBot\'s Social Media accounts",
-    "description": "",
-    "color": 53380,
-    "footer": {
-      "text": "© Copyright Akelli Company 2019"
+    "plainText": "**My Social Media**",{
+  "title": "Akelli",
+  "description": "Make sure to follow us for future updates!",
+  "author": {
+    "icon_url": "https://cdn.discordapp.com/avatars/534003592542027786/10199bbc68d2c69dea28e76772e175ba.png?size=2048"
+  },
+  "color": 53380,
+  "footer": {
+    "text": "© Copyright Akelli Company 2019, @akellicompany",
+    "icon_url": "https://cdn.discordapp.com/avatars/534003592542027786/10199bbc68d2c69dea28e76772e175ba.png?size=2048"
+  },
+  "thumbnail": "https://cdn.discordapp.com/attachments/344215127828070401/538810804024377374/20190117_091141.jpg",
+  "fields": [
+    {
+      "name": "• Instagram",
+      "value": "https://www.instagram.com/akellicompany",
+      "inline": false
     },
-    "fields": [
-        
-        {
-        "name": "• Instagram",
-        "value": "https://www.instagram.com/akellicompany",
-        "inline": false
-      },
-        
-      {
-        "name": "• Twitter",
-        "value": "https://www.twitter.com/akellicompany",
-        "inline": false
-      },
-      {
-        "name": "• Discord",
-        "value": "https://www.discord.me/akellibot",
-        "inline": false
-      }
-     
-    ]
-  }
-});
+    {
+      "name": "• Twitter",
+      "value": "https://www.twitter.com/akellicompany",
+      "inline": false
+    },
+    {
+      "name": "• Discord",
+      "value": "https://www.discord.me/akellibot",
+      "inline": false
+    }
+  ]
 }
+                   
  // ADMIN & MODERATOR COMMANDS - AkelliCompany MANAGEMENT & STAFF ONLY
     if (msg.content.startsWith(prefix + 'setgame')) {
     if(!msg.member.roles.some(r=>["AC Management","AkelliBot Mod"].includes(r.name)) )
