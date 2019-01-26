@@ -111,6 +111,8 @@ client.on('message', async msg => {
     }
   ]
 }
+});
+}
                    
  // ADMIN & MODERATOR COMMANDS - AkelliCompany MANAGEMENT & STAFF ONLY
     if (msg.content.startsWith(prefix + 'setgame')) {
