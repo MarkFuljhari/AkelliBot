@@ -51,7 +51,7 @@ client.on('message', async msg => {
     msg.channel.send({embed:{
   "title": "Commands: (usage: a!<command>)",
       "description": "**» Music:** \n  COMING SOON \n\n**» Administration:**\navatar <@user> - Sends you the user's profile picture. \nmyavatar - Sends you your profile picture. \n\n**» Information:**\nhelp - Shows this message. \nping - Displays bot's latency and DiscordApp API \nsocialmedia - Shows Team\'s social media. \n\n**» Akelli Company:** \nsetgame - Changes the game activity status of the bot.",
-      "color": 6402937,
+      "color": 3447003,
       "footer": {
         "text": "© Copyright Akelli Company 2019, @akellicompany"
         "icon_url": "https://cdn.discordapp.com/avatars/534003592542027786/10199bbc68d2c69dea28e76772e175ba.png?size=2048"
@@ -88,7 +88,7 @@ client.on('message', async msg => {
   "author": {
     "icon_url": "https://cdn.discordapp.com/avatars/534003592542027786/10199bbc68d2c69dea28e76772e175ba.png?size=2048"
   },
-  "color": 53380,
+  "color": 15105570,
   "footer": {
     "text": "© Copyright Akelli Company 2019, @akellicompany",
     "icon_url": "https://cdn.discordapp.com/avatars/534003592542027786/10199bbc68d2c69dea28e76772e175ba.png?size=2048"
