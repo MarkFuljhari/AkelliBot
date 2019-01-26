@@ -40,11 +40,6 @@ client.on('message', async msg => {
 
   if(msg.content.indexOf(prefix) !== 0) return;
     
-// PING COMMAND - MISC CMDS
-  if (msg.content.startsWith(prefix + 'ping')) {
-    const m = await msg.channel.send("Ping ?");
-    m.edit(`Pong! Latency is **${m.createdTimestamp - msg.createdTimestamp}**ms. API Latency is **${Math.round(client.ping)}**ms`);
-  }
 // BOT HELP COMMAND - MISC CMDS
  if (msg.content.startsWith(prefix + 'help')) {
     msg.channel.send({embed:{
@@ -52,7 +47,7 @@ client.on('message', async msg => {
       "description": "**》🎶Music:**\n  COMING SOON \n\n**》📈Administration:**\navatar <@user> - Sends you the user\'s profile picture. \nmyavatar - Sends you your profile picture. \n\n**》🤖 Information:**\nhelp - Shows this message. \nping - Displays bot\'s latency and DiscordApp API \n\n**》🏢 Akelli Company:** \nsetgame - Changes the game activity status of the bot.",
       "color": 6402937,
       "footer": {
-        "text": "©️ Copyright Akelli Company 2019"
+        "text": "©️ Copyright Akelli Company 2019, @akellicompany"
       },
       "author": {
         "name": "Akelli",
@@ -103,6 +98,11 @@ client.on('message', async msg => {
       }
      
     ]
+  }
+                    
+    if (msg.content.startsWith(prefix + 'ping')) {
+    const m = await msg.channel.send("Ping ?");
+    m.edit(`Pong! Latency: **${m.createdTimestamp - msg.createdTimestamp}**ms. API Latency: **${Math.round(client.ping)}**ms`);
   }
 });
 }
