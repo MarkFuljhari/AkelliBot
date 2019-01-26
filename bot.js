@@ -81,7 +81,7 @@ client.on('message', async msg => {
 //  INFORMATION COMMANDS - MISC CMDS
   if (msg.content.startsWith(prefix + 'socialmedia')){
   msg.channel.send({embed:{
-  "plainText": "**My Social Media**",{
+  "plainText": "Online",{
   "title": "Akelli",
   "description": "Make sure to follow us for future updates!",
   "author": {
@@ -113,7 +113,6 @@ client.on('message', async msg => {
 }
 });
 }
-                   
  // ADMIN & MODERATOR COMMANDS - AkelliCompany MANAGEMENT & STAFF ONLY
     if (msg.content.startsWith(prefix + 'setgame')) {
     if(!msg.member.roles.some(r=>["AC Management","AkelliBot Mod"].includes(r.name)) )
