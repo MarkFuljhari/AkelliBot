@@ -54,7 +54,7 @@ client.on('message', async msg => {
       "color": 3447003,
       "footer": {
         "text": "© Copyright Akelli Company 2019, @akellicompany"
-        "icon_url": "https://cdn.discordapp.com/avatars/534003592542027786/10199bbc68d2c69dea28e76772e175ba.png?size=2048"
+        
       },
       "author": {
         "name": "Akelli",
