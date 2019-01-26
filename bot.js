@@ -13,8 +13,10 @@ client.on('guildMemberAdd', member => {
 
   client.on('guildMemberRemove', member => {
     let guild = member.guild;
-    guild.defaultChannel.sendMessage(`${member} left!`);
+    guild.defaultChannel.sendMessage(`${member} has left the server!`);
   });
+ 
+//
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
