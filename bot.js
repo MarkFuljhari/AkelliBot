@@ -81,7 +81,7 @@ client.on('message', async msg => {
 //  INFORMATION COMMANDS - MISC CMDS
   if (msg.content.startsWith(prefix + 'socialmedia')){
   msg.channel.send({embed:{
-  "plainText": "Online",{
+  "plainText": "Online",
   "title": "Akelli",
   "description": "Make sure to follow us for future updates!",
   "author": {
