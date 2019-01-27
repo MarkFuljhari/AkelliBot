@@ -32,8 +32,8 @@ client.on('message', async msg => {
     const args = msg.content.slice(prefix.length).trim().split(/ +/g);
     var argresult = args.join(' ');
     
- // EXAMPLE COMMAND INSTRUCTION & MEANING:    
- // if (msg.content === 'example') { // the { here signs the start of the scope(of the if sentence)
+// EXAMPLE COMMAND INSTRUCTION & MEANING:    
+// if (msg.content === 'example') { // the { here signs the start of the scope(of the if sentence)
 //    msg.reply('This is an example command!');
 //  } // the } here signs the end of the scope(if sentence)   
     
