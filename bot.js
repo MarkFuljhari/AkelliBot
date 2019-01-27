@@ -124,7 +124,7 @@ if (msg.content.startsWith(prefix + 'ping')) {
  "title": "Invite Bot",
  "url": "https://discordapp.com/oauth2/authorize?client_id=534003592542027786&scope=bot&permissions=8",
  "author": {
-   "name": "Invite AkelliBot? Press below!"
+   "name": "Do you wish to invite AkelliBot? Press the link below!"
  },
  "color": 3447003,
  "footer": {
