@@ -15,7 +15,7 @@ client.on('guildMemberAdd', member => {
 
   client.on('guildMemberRemove', member => {
     let guild = member.guild;
-    guild.defaultChannel.sendMessage(`${member} has left the server!`);
+    guild.defaultChannel.sendMessage(`${member.user.username} has left the server!`);
   });
 
 // CONSOLE REPLY & GAME ACTIVITY STATUS OF THE BOT:
@@ -45,8 +45,8 @@ client.on('message', async msg => {
 // BOT HELP COMMAND - MISC CMDS
  if (msg.content.startsWith(prefix + 'help')) {
     msg.channel.send({embed:{
-  "title": "Commands: (usage: a!<command>) \nJoin server: https://discord.gg/j39xBQa",
-      "description": "**» Music:** \n  COMING SOON \n\n**» Administration:**\navatar <@user> - Sends you the user's profile picture. \nmyavatar - Sends you your profile picture. \n\n**» Information:**\nhelp - Shows this message. \nping - Displays bot's latency and DiscordApp API \nsocialmedia - Shows Team\'s social media. \n\n**» Akelli Company:** \nsetgame - Changes the game activity status of the bot.",
+  "title": "Commands: (usage: a!<command>)",
+      "description": "**» Music:** \n  COMING SOON \n\n**» Administration:**\navatar <@user> - Sends you the user's profile picture. \nmyavatar - Sends you your profile picture. \n\n**» Information:**\nhelp - Shows this message. \ninvite - Link to invite Bot!\nping - Displays bot's latency and DiscordApp API \nsocialmedia - Shows Team\'s social media. \n\n**» Akelli Company:** \nsetgame - Changes the game activity status of the bot.",
       "color": 3447003,
       "footer": {
         "text": "© Copyright Akelli Company 2019, @akellicompany"
@@ -108,14 +108,32 @@ client.on('message', async msg => {
     }
   ]
 }
-});
+  });
 }
 
+     // PING CMD
 if (msg.content.startsWith(prefix + 'ping')) {
   const m = await msg.channel.send("Pong! Checking status");
   m.edit(`Pong! Latency: **${m.createdTimestamp - msg.createdTimestamp}**ms. API Latency: **${Math.round(client.ping)}**ms`);
 }
 
+    // BOT INVITATION
+    if (msg.content.startsWith(prefix + 'invite')){
+    msg.channel.send({embed:{
+      "plainText": "AkelliBot Invite",
+ "title": "Invite Bot",
+ "url": "https://discordapp.com/oauth2/authorize?client_id=534003592542027786&scope=bot&permissions=8",
+ "author": {
+   "name": "Invite AkelliBot? Press below!"
+ },
+ "color": 3447003,
+ "footer": {
+   "text": "© Copyright Akelli Company ",
+   "icon_url": "https://cdn.discordapp.com/avatars/534003592542027786/10199bbc68d2c69dea28e76772e175ba.png?size=2048"
+ }
+}
+});
+}
 
  // ADMIN & MODERATOR COMMANDS - AkelliCompany MANAGEMENT & STAFF ONLY
     if (msg.content.startsWith(prefix + 'setgame')) {
