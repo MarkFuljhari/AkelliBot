@@ -45,7 +45,7 @@ client.on('message', async msg => {
 // BOT HELP COMMAND - MISC CMDS
  if (msg.content.startsWith(prefix + 'help')) {
     msg.channel.send({embed:{
-  "title": "Commands: (usage: a!<command>)",
+  "title": "Commands: (usage: a!<command>) Join server: https://discord.gg/j39xBQa",
       "description": "**» Music:** \n  COMING SOON \n\n**» Administration:**\navatar <@user> - Sends you the user's profile picture. \nmyavatar - Sends you your profile picture. \n\n**» Information:**\nhelp - Shows this message. \ninvite - Link to invite Bot!\nping - Displays bot's latency and DiscordApp API \nsocialmedia - Shows Team\'s social media. \n\n**» Akelli Company:** \nsetgame - Changes the game activity status of the bot.",
       "color": 3447003,
       "footer": {
