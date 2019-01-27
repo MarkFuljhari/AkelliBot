@@ -7,13 +7,16 @@ const client = new Discord.Client();   //This one here tells you that constant w
 // BOT PREFIX:
 var prefix = "a!";
 
-// GREET COMMANDS
-client.on('guildMemberAdd', member => {
+//// GREET COMMAND SECTION ////
+
+    // USER JOINS SERVER
+    client.on('guildMemberAdd', member => {
     let guild = member.guild;
     guild.defaultChannel.sendMessage(`Everyone, welcome ${member} to the server!`);
   });
 
-  client.on('guildMemberRemove', member => {
+    // USER LEAVES SERVER
+    client.on('guildMemberRemove', member => {
     let guild = member.guild;
     guild.defaultChannel.sendMessage(`${member.user.username} has left the server!`);
   });
@@ -42,7 +45,7 @@ client.on('message', async msg => {
   if(msg.content.indexOf(prefix) !== 0) return;
 
 
-// BOT HELP COMMAND - MISC CMDS
+//// HELP COMMAND (EMBED MESSAGE: https://embedbuilder.nadekobot.me/) ////
  if (msg.content.startsWith(prefix + 'help')) {
     msg.channel.send({embed:{
   "title": "Commands: (usage: a!<command>) Join server: https://discord.gg/j39xBQa",
@@ -62,12 +65,15 @@ client.on('message', async msg => {
 }
 
 
-// USER INFO & AVATAR COMMANDS - MISC CMDS
+//// ADMINISTRATION COMMAND SECTION ////
+
+    // MYAVATAR CMD
     if (msg.content.startsWith(prefix + 'myavatar')){
     msg.member.send(msg.author.avatarURL);
     msg.reply('I will send you your profile picture!');
   }
 
+    // AVATAR @USER CMD
     if (msg.content.startsWith(prefix + 'avatar')){
     let member = msg.mentions.members.first();
     msg.member.send(member.user.displayAvatarURL);
@@ -75,7 +81,9 @@ client.on('message', async msg => {
   }
 
 
-//  INFORMATION COMMANDS - MISC CMDS
+////  INFORMATION COMMAND SECTION ////
+
+  // SOCIAL MEDIA CMD
   if (msg.content.startsWith(prefix + 'socialmedia')){
   msg.channel.send({embed:{
   "plainText": "Online",
@@ -117,7 +125,7 @@ if (msg.content.startsWith(prefix + 'ping')) {
   m.edit(`Pong! Latency: **${m.createdTimestamp - msg.createdTimestamp}**ms. API Latency: **${Math.round(client.ping)}**ms`);
 }
 
-    // BOT INVITATION
+    // BOT INVITATION CMD
     if (msg.content.startsWith(prefix + 'invite')){
     msg.channel.send({embed:{
       "plainText": "AkelliBot Invite",
@@ -135,7 +143,9 @@ if (msg.content.startsWith(prefix + 'ping')) {
 });
 }
 
- // ADMIN & MODERATOR COMMANDS - AkelliCompany MANAGEMENT & STAFF ONLY
+ //// [AKELLIBOT MANAGEMENT & STAFF: AKELLI COMPANY SECTION COMMANDS] ////
+
+    // SETGAME <MESSAGE> CMD
     if (msg.content.startsWith(prefix + 'setgame')) {
     if(!msg.member.roles.some(r=>["AC Management","Akelli Staff"].includes(r.name)) )
     return msg.reply("error! You don't have sufficient access to execute this command! \n Requirement: Management Team or Staff Moderator");
