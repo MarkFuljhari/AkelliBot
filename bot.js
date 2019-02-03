@@ -51,7 +51,7 @@ client.on('message', async msg => {
       // HELP COMMAND:
     if (msg.content.startsWith(prefix + 'help')) {
       msg.channel.send({embed:{
-      "title": "Commands: (usage: a!<command>) Join server: https://discord.gg/j39xBQa",
+      "title": "",
       "description": "Hi! I'm AkelliBot! \nI am 24/7 online & being developed by:\nAkelli Company's Developers (TeamCo7Clan) \nFor a list of commands enter **a!commands** \n\nDo you wish to add me in your server? \nEnter **a!invite** \n\nNeed support? Join our server!\nhttps://discord.gg/j39xBQa",
       "color": 3447003,
       "footer": {
@@ -59,7 +59,7 @@ client.on('message', async msg => {
 
       },
       "author": {
-      "name": "Akelli",
+      "name": "Akelli Help",
       "url": "https://thebestgameryt.github.io/AkelliBot/",
       "icon_url": "https://cdn.discordapp.com/avatars/534003592542027786/10199bbc68d2c69dea28e76772e175ba.png?size=2048"
       }
