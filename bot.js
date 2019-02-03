@@ -51,7 +51,7 @@ client.on('message', async msg => {
  if (msg.content.startsWith(prefix + 'help')) {
     msg.channel.send({embed:{
   "title": "Commands: (usage: a!<command>) Join server: https://discord.gg/j39xBQa",
-      "description": "**» Music:** \n  COMING SOON \n\n**» Administration:**\navatar <@user> - Sends you the user's profile picture. \nmyavatar - Sends you your profile picture. \n\n**» Information:**\nhelp - Shows this message. \ninvite - Link to invite Bot!\nping - Displays bot's latency and DiscordApp API \nsocialmedia - Shows Team\'s social media. \n\n**» Akelli Company:** \nsetgame - Changes the game activity status of the bot.",
+      "description": "Hi! I'm AkelliBot! \nI am 24/7 online & being developed by:\nAkelli Company's Developers (TeamCo7Clan) \nFor a list of commands enter **a!commands** \n\nDo you wish to add me in your server? \nEnter **a!invite** \n\nNeed support? Join our server!\nhttps://discord.gg/j39xBQa",
       "color": 3447003,
       "footer": {
         "text": "© Copyright Akelli Company 2019, @akellicompany"
