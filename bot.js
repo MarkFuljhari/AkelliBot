@@ -32,12 +32,12 @@ client.on('message', async msg => {
   if(msg.author.bot) return; //This here means that if message was sent from the other bots EXEPT Akelli, our bot (Akelli) won't sent anything in the chat (thats why return there is e.g return, returns you to somewhere or something) this prevents bot-ception (when multiple bots were to use the same prefix).
   if(msg.content.indexOf(prefix) !== 0) return;
 
-//// HELP COMMAND (EMBED MESSAGE: https://embedbuilder.nadekobot.me/) ////
-
+//// HELP COMMAND & COMMANDS COMMAND (EMBED MESSAGE: https://embedbuilder.nadekobot.me/) ////
+     //HELP 
  if (msg.content.startsWith(prefix + 'help')) {
     msg.channel.send({embed:{
-  "title": "Commands: (usage: a!<command>) Join server: https://discord.gg/j39xBQa",
-      "description": "**» Music:** \n  COMING SOON \n\n**» Administration:**\navatar <@user> - Sends you the user's profile picture. \nmyavatar - Sends you your profile picture. \n\n**» Information:**\nhelp - Shows this message. \ninvite - Link to invite the Bot!\nping - Sends the ping! \nsocialmedia - Shows Team\'s social media. \n\n**» Akelli Company:** \nsetgame - Changes the game activity status of the bot.",
+  "title": "Commands: (usage: a!<command>)",
+      "description": "Hi! I'm AkelliBot! \nI am 24/7 online and ready! \nFor a list of commands enter **a!comnnads** \n\nWant me in your server? \nEnter **a!invite** \n\nNeed support? Join our server!\nhttps://discord.gg/j39xBQa",
       "color": 3447003,
       "footer": {
         "text": "© Copyright Akelli Company 2019, @akellicompany"
