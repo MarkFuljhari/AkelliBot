@@ -72,7 +72,7 @@ client.on('message', async msg => {
       msg.channel.send({embed:
       {
       "title": "Usage: a!<command>",
-      "description": "**» Music:** \nCOMING SOON... now on Akelli FM Bot\nJoin our Discord for more info! \n\n**» Administration:**\navatar <@user> - Sends you the user's profile picture. \nmyavatar - Sends you your profile picture. \n\n**» Information:**\nhelp - Shows this message. \ninvite - Link to invite the Bot!\nping - Sends the ping! \nsocialmedia - Shows Team's social media. \n\n**» Akelli Company:** \nsetgame - Changes the game activity status of the bot.",
+      "description": "**» Music:** \nCOMING SOON... now on Akelli FM Bot\nJoin our Discord for more info! \n\n**» Administration:**\navatar <@user> - Sends you the user's profile picture. \nmyavatar - Sends you your profile picture. \n\n**» Information:**\nhelp - Sends the introduction message \ninvite - Link to invite the Bot!\nping - Sends the ping! \nsocialmedia - Shows Team's social media. \n\n**» Akelli Company:** \nsetgame - Changes the game activity status of the bot.",
       "author": {
       "name": "Akelli Commands",
       "icon_url": "https://cdn.discordapp.com/avatars/534003592542027786/10199bbc68d2c69dea28e76772e175ba.png?size=2048"
