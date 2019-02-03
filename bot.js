@@ -7,20 +7,6 @@ const client = new Discord.Client();   //This one here tells you that constant w
 //// BOT PREFIX: EXAMPLE: !help , a!help, $help , b$help , b!help etc. ////
 var prefix = "a!";
 
-//// GREET COMMAND SECTION ////
-
-    // USER JOINS SERVER
-    client.on('guildMemberAdd', member => {
-    let guild = member.guild;
-    guild.defaultChannel.sendMessage(`Everyone, welcome ${member} to the server!`);
-    });
-
-    // USER LEAVES SERVER
-    client.on('guildMemberRemove', member => {
-    let guild = member.guild;
-    guild.defaultChannel.sendMessage(`${member.user.username} has left the server!`);
-    });
-
 //// CONSOLE REPLY & GAME ACTIVITY STATUS OF THE BOT: ////
 
 client.on('ready', () => {
@@ -66,6 +52,19 @@ client.on('message', async msg => {
     });
 }
 
+//// GREET COMMAND SECTION ////
+
+    // USER JOINS SERVER
+    client.on('guildMemberAdd', member => {
+    let guild = member.guild;
+    guild.defaultChannel.sendMessage(`Everyone, welcome ${member} to the server!`);
+    });
+
+    // USER LEAVES SERVER
+    client.on('guildMemberRemove', member => {
+    let guild = member.guild;
+    guild.defaultChannel.sendMessage(`${member.user.username} has left the server!`);
+    });
 
 //// ADMINISTRATION COMMAND SECTION ////
 
