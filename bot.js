@@ -7,6 +7,20 @@ const client = new Discord.Client();   //This one here tells you that constant w
 //// BOT PREFIX: EXAMPLE: !help , a!help, $help , b$help , b!help etc. ////
 var prefix = "a!";
 
+//// GREET COMMAND SECTION ////
+
+    // USER JOINS SERVER
+    client.on('guildMemberAdd', member => {
+    let guild = member.guild;
+    guild.defaultChannel.sendMessage(`Everyone, welcome ${member} to the server!`);
+    });
+
+    // USER LEAVES SERVER
+    client.on('guildMemberRemove', member => {
+    let guild = member.guild;
+    guild.defaultChannel.sendMessage(`${member.user.username} has left the server!`);
+    });
+
 //// CONSOLE REPLY & GAME ACTIVITY STATUS OF THE BOT: ////
 
 client.on('ready', () => {
@@ -32,12 +46,12 @@ client.on('message', async msg => {
   if(msg.author.bot) return; //This here means that if message was sent from the other bots EXEPT Akelli, our bot (Akelli) won't sent anything in the chat (thats why return there is e.g return, returns you to somewhere or something) this prevents bot-ception (when multiple bots were to use the same prefix).
   if(msg.content.indexOf(prefix) !== 0) return;
 
-//// HELP COMMAND & COMMANDS COMMAND (EMBED MESSAGE: https://embedbuilder.nadekobot.me/) ////
-     //HELP 
+//// HELP COMMAND (EMBED MESSAGE: https://embedbuilder.nadekobot.me/) ////
+
  if (msg.content.startsWith(prefix + 'help')) {
     msg.channel.send({embed:{
-  "title": "Commands: (usage: a!<command>)",
-      "description": "Hi! I'm AkelliBot! \nI am 24/7 online and ready! \nFor a list of commands enter **a!comnnads** \n\nWant me in your server? \nEnter **a!invite** \n\nNeed support? Join our server!\nhttps://discord.gg/j39xBQa",
+  "title": "Commands: (usage: a!<command>) Join server: https://discord.gg/j39xBQa",
+      "description": "Hi! I'm AkelliBot! \nI am 24/7 online & being developed by:\nAkelli Company's Developers (TeamCo7Clan) \nFor a list of commands enter **a!commands** \n\nDo you wish to add me in your server? \nEnter **a!invite** \n\nNeed support? Join our server!\nhttps://discord.gg/j39xBQa",
       "color": 3447003,
       "footer": {
         "text": "© Copyright Akelli Company 2019, @akellicompany"
@@ -52,19 +66,6 @@ client.on('message', async msg => {
     });
 }
 
-//// GREET COMMAND SECTION ////
-
-    // USER JOINS SERVER
-    client.on('guildMemberAdd', member => {
-    let guild = member.guild;
-    guild.defaultChannel.sendMessage(`Everyone, welcome ${member} to the server!`);
-    });
-
-    // USER LEAVES SERVER
-    client.on('guildMemberRemove', member => {
-    let guild = member.guild;
-    guild.defaultChannel.sendMessage(`${member.user.username} has left the server!`);
-    });
 
 //// ADMINISTRATION COMMAND SECTION ////
 
