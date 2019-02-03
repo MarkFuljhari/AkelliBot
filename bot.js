@@ -1,4 +1,4 @@
-  /// This two lines are constants the stuff that you need in order for bot to run should be all declared on the begging of the code
+  // This two lines are constants the stuff that you need in order for bot to run should be all declared on the begging of the code
 
 const Discord = require('discord.js'); //This one tells you that constant with the name Discord in order to work requires discord.js library
 
@@ -68,7 +68,7 @@ client.on('message', async msg => {
       }
 
       // COMMANDS COMMAND:
-    if (msg.content.startsWith(prefix + 'help')) {
+    if (msg.content.startsWith(prefix + 'commands')) {
       msg.channel.send({embed:
       {
       "title": "Usage: a!<command>",
