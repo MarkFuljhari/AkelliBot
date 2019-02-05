@@ -1,4 +1,4 @@
-  // This two lines are constants the stuff that you need in order for bot to run should be all declared on the begging of the code
+// This two lines are constants the stuff that you need in order for bot to run should be all declared on the begging of the code
 
 const Discord = require('discord.js'); //This one tells you that constant with the name Discord in order to work requires discord.js library
 
@@ -55,7 +55,7 @@ client.on('message', async msg => {
       "description": "Hi! I'm AkelliBot! \nI am 24/7 online & being developed by:\nAkelli Company's Developers (TeamCo7Clan) \nFor a list of commands enter **a!commands** \n\nDo you wish to add me in your server? \nEnter **a!invite** \n\nNeed support? Join our server!\nhttps://discord.gg/j39xBQa",
       "color": 3447003,
       "footer": {
-      "text": "© Copyright Akelli Company 2019, @akellicompany"
+      "text": "© Copyright Akelli Company, @akellicompany"
 
       },
       "author": {
@@ -72,14 +72,14 @@ client.on('message', async msg => {
       msg.channel.send({embed:
       {
       "title": "Usage: a!<command>",
-      "description": "**» Music:** \nCOMING SOON... now on Akelli FM Bot\nJoin our Discord for more info! \n\n**» Administration:**\navatar <@user> - Sends you the user's profile picture. \nmyavatar - Sends you your profile picture. \n\n**» Information:**\nhelp - Sends the introduction message \ninvite - Link to invite the Bot!\nping - Sends the ping! \nsocialmedia - Shows Team's social media. \n\n**» Akelli Company:** \nsetgame - Changes the game activity status of the bot.",
+      "description": "**» Music:** \nCOMING SOON... now on Akelli FM Bot.\nJoin our Discord for more info with!\n\n**» Administration Moderation:**\navatar <@user> - Sends you the user's profile picture. \nmyavatar - Sends you your profile picture. \n\n**» Information:**\nhelp - Sends the introduction message. \ninvite - Link to invite the Bot!\nping - Sends the ping! \nsocialmedia - Team's social media accounts.\n\n**» Akelli Company:** \nsetgame <@message> - Changes the game activity status of the bot.",
       "author": {
       "name": "Akelli Commands",
       "icon_url": "https://cdn.discordapp.com/avatars/534003592542027786/10199bbc68d2c69dea28e76772e175ba.png?size=2048"
       },
       "color": 53380,
       "footer": {
-      "text": "© Copyright Akelli Company 2019, @akellicompany"
+      "text": "© Copyright Akelli Company, @akellicompany"
       }
       }
       });
@@ -113,7 +113,7 @@ client.on('message', async msg => {
      },
      "color": 15105570,
      "footer": {
-     "text": "© Copyright Akelli Company 2019",
+     "text": "© Copyright Akelli Company",
      "icon_url": "https://cdn.discordapp.com/avatars/534003592542027786/10199bbc68d2c69dea28e76772e175ba.png?size=2048"
      },
      "thumbnail": "https://cdn.discordapp.com/attachments/344215127828070401/538810804024377374/20190117_091141.jpg",
@@ -155,7 +155,7 @@ client.on('message', async msg => {
       },
       "color": 3447003,
       "footer": {
-      "text": "© Copyright Akelli Company ",
+      "text": "© Copyright Akelli Company",
       "icon_url": "https://cdn.discordapp.com/avatars/534003592542027786/10199bbc68d2c69dea28e76772e175ba.png?size=2048"
        }
        }
@@ -175,4 +175,5 @@ client.on('message', async msg => {
     msg.reply("command accepted! \nNew game activity message set!");
     }
     });
+    
 client.login(process.env.BOT_TOKEN);
