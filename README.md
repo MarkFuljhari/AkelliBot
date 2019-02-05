@@ -13,6 +13,7 @@ Persistent perfection is what we are after.
 
 ### Join Us !
 Join our [DiscordApp](https://discord.me/akellibot) server!
+Feel free to apply for staff! in #applications
 
 ### Support
 
