@@ -17,7 +17,7 @@ Join our [DiscordApp](https://discord.me/akellibot) server!
 
 ### Support
 
-Having trouble with our bot or software? 
+Having trouble with our bot or software? \n
 Do you see our software doing strange activity in logs without your legal or staff's permission?
 
 Report it to our team on [Discord](https://discord.me/akellibot).
