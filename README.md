@@ -3,7 +3,8 @@
 ### About Discord Bot
 
 AkelliBot is a very intelligent bot, made by Akelli Company that is owned by [Mark Fuljhari](https://github.com/MarkFuljhari).
-The Company's sofware engineer: Developer & Head of SoftwareTeam, [TheBestGamerYT](https://github.com/thebestgameryt)
+The Company's sofware engineer: Developer & Head of SoftwareTeam, [TheBestGamerYT](https://github.com/thebestgameryt).
+
 Founded on January 13th 2019 ,Akelli Company is a very young and new Software Developer Team.
 Developing: discord.javascript software for Discord bots, https://discordapp.com
 
