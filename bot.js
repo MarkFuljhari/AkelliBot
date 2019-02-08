@@ -37,7 +37,7 @@ const responseObject = {
 //  let warns = JSON.stringify(fs.readFileSync("./warnings.json", "utf8"));
 //------------------------|
 // BOT PREFIX: EXAMPLE: ! , a!, $ , b$ , b! etc. |
-var prefix = "v! ";  //-- This is the default prefix of the bot |
+var prefix = "a! ";  //-- This is the default prefix of the bot |
 //------------------------|
 // GREET JOIN AND LEAVE EVERYTHING IS FULLY EMBED AND WITH USERS AVATAR AND NAME
 // [THIS ONE ACTIVATES WHEN A NEW USER JOINS A SERVER]
