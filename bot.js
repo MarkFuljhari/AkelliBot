@@ -328,13 +328,13 @@ msg.channel.send(`${member} has been poked by ${msg.author}`);
 
 // HI CMD
 if (msg.content.startsWith(prefix + 'hi')){
-msg.channel.send('hi there how are you 👋');
+msg.channel.send('Hi there! How are you? 👋');
 }
 
 // HAND WAVE CMD
 if (msg.content.startsWith(prefix + 'wave')){
 let member = msg.mentions.members.first();
-msg.channel.send(`${member} , ${msg.author} decited to say hi to you 👋`);
+msg.channel.send(`${member} , ${msg.author} decided to wave at you 👋`);
 }
 
 // WEED CMD
