@@ -210,7 +210,7 @@ if (msg.content.startsWith(prefix + 'credits')){
 
     let ccreator = ("TheBestGamerYT#6781 and MarkF#4978");
     
-    let ccommunity = ("Everyome that supports us!");
+    let ccommunity = ("Everyone that supports us!");
     
     let chosting = ("Heroku Services, www.heroku.com");
     
@@ -219,10 +219,9 @@ if (msg.content.startsWith(prefix + 'credits')){
             .setColor("#9B59B6")
             .setThumbnail(bicon)
             .addField("Developed by:", ccreator)
-            .addField("Idea's:", ccommunity)
+            .addField("Ideas:", ccommunity)
             .addField("Bot Hosting:", chosting)
-    
-    
+      
             msg.channel.send({embed: embed});
   }
 // SOCIAL MEDIA CMD
