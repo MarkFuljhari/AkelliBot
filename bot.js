@@ -115,7 +115,7 @@ return msg.channel.send(pingembed);
   if (msg.content.startsWith(prefix + 'help')) {
     msg.channel.send({embed:{
       "title": "",
-      "description": "Hi! I'm AkelliBot! \nI am 24/7 online & being developed by:\nAkelli Company's Developers (TeamCo7Clan) \nFor a list of commands enter **a!commands** \n\nDo you wish to add me in your server? \nEnter **a!invite** \n\nNeed support? Join our server!\nhttps://discord.gg/j39xBQa",
+      "description": "Hi! I'm AkelliBot! \nI am 24/7 online & being developed by:\nAkelli Company's Developers (TeamCo7Clan) \nFor a list of commands enter **=commands** \n\nDo you wish to add me in your server? \nEnter **=invite** \n\nNeed support? Join our server!\nhttps://discord.gg/j39xBQa",
       "color": 3447003,
       "footer": {
       "text": "© Copyright Akelli Company, @akellicompany"
@@ -133,21 +133,45 @@ return msg.channel.send(pingembed);
    // COMMANDS CMD (EMBED)
    if (msg.content.startsWith(prefix + 'commands')) {
     msg.member.send({embed:
-    {
-    "title": "Usage: a!<command>",
-    "description": "**» Music:** \nCOMING SOON... now on Akelli FM Bot.\nJoin our Discord for more info !\n\n**» Administration Moderation:**\navatar <@user> - Sends you the user's profile picture. \nmyavatar - Sends you your profile picture. \n\n**» Information:**\nhelp - Sends the introduction message. \ninvite - Link to invite the Bot!\nping - Sends the ping! \nsocialmedia - Team's social media accounts.\n\n**» Akelli Company:** \nsetgame <@message> - Changes the game activity status of the bot.",
-    "author": {
-    "name": "Akelli Commands",
-    "icon_url": "https://cdn.discordapp.com/avatars/534003592542027786/10199bbc68d2c69dea28e76772e175ba.png?size=2048"
-    },
-    "color": 53380,
-    "footer": {
-    "text": "© Copyright Akelli Company, @akellicompany"
+      {
+      "title": "Usage: =<command>",
+      "description": "Need help? Join our Discord server.",
+      "author": {
+        "name": "AkelliBot Commands",
+        "icon_url": "https://cdn.discordapp.com/avatars/534003592542027786/10199bbc68d2c69dea28e76772e175ba.png?size=2048"
+      },
+      "color": 553380,
+      "footer": {
+        "text": "© Copyright Akelli Company, @akellicompany"
+      },
+      "fields": [
+        {
+          "name": "» Information",
+          "value": "=myavatar, =avatar, =stats, =serverinfo, =credits, =socialmedia, =invite",
+          "inline": false
+        },
+        {
+          "name": "» Fun",
+          "value": "=poke, =hi, =weed, =haveibeenpwned, =dog, =cat, =meme, =boob, =slots, =8ball",
+          "inline": false
+        },
+        {
+          "name": "» Administration",
+          "value": "=ban, =kick, =report, =poll, =purge, =mute, =warn, =setgame, =setprefix",
+          "inline": false
+        },
+        {
+          "name": "» Music",
+          "value": "Currently available on Akelli Music bot. Join our Discord for more info!",
+          "inline": false
+        }
+      ]
     }
-    }
-});
+  });
 msg.reply('I\'ve sent you a PM! 🤳');
    }
+
+     //// INFORMATION SECTION ////
 
        // MYAVATAR CMD
        if (msg.content.startsWith(prefix + 'myavatar')){
@@ -162,6 +186,7 @@ msg.reply('I\'ve sent you a PM! 🤳');
         msg.reply('user\'s profile picture sent to you!');
    }
 
+      // STATS COMMAND
    if (msg.content.startsWith(prefix + 'stats')){
     let FooterHinami = [
         `${client.user.username} is here to support!`,
@@ -293,7 +318,7 @@ if (msg.content.startsWith(prefix + 'invite')){
    });
    }
 
-//// FUN COMMANDS:
+       //// FUN COMMANDS: ////
 
 // POKE CMD
 if (msg.content.startsWith(prefix + 'poke')){
@@ -445,7 +470,7 @@ if (msg.content.startsWith(prefix + 'slots')){
     }
 }
 
-// 8 BALL CMD
+// 8BALL CMD
 if (msg.content.startsWith(prefix + '8ball')){
   if (!args[2]) return msg.reply("Please ask a full question!");
   let replies = ["Yes, Certainly :8ball:", "No, Never :8ball:", "Please ask again :8ball:"]
@@ -469,7 +494,7 @@ if (responseObject[msg.content]){
 
 //// ADMINISTRATION COMMANDS SECTION [Current Cmds: Ban,Kick,Report,Poll,Purge,Mute,Warn,Setgame,SetPrefix] <----------------------------|
 
-// BAN COMMAND:
+// BAN @USER <REASON> COMMAND:
 if (msg.content.startsWith(prefix + 'ban')) {
   const banlog = msg.guild.channels.find(channel => channel.name === 'mod-logs');
   const mod = msg.author;
@@ -495,7 +520,7 @@ await user.ban(reason)
         banlog.send(banembed)
 }
 
-// KICK COMMAND:
+// KICK @USER <REASON> COMMAND:
 if (msg.content.startsWith(prefix + 'kick')){
   const kicklog = msg.guild.channels.find(channel => channel.name === 'mod-logs');
   const mod = msg.author;
@@ -519,7 +544,7 @@ if(!msg.member.roles.some(r=>["Akelli Staff"].includes(r.name)) )
     kicklog.send(kickembed)
 }
 
-// REPORT COMMAND:
+// REPORT @USER <REASON> COMMAND:
 if(msg.content.startsWith(prefix + 'report')){
   if(!msg.member.roles.some(r=>["AC Management","Akelli Staff"].includes(r.name)) )
   return msg.reply("you don't have sufficient access to execute this command! \n Requirement: Management Team or Staff Moderator");
@@ -662,6 +687,7 @@ warnchannel.send(warnEmbed);
 }
 
 // SET GAME ACTIVITY STATUS OF THE BOT MANUALLY (WITHOUT ENTERING SCRIPT/CODE)
+// SETGAME <TEXT>
 if (msg.content.startsWith(prefix + 'setgame')) {
   if(!msg.member.roles.some(r=>["AC Management","Akelli Staff"].includes(r.name)) )
   return msg.reply("you don't have sufficient access to execute this command! \n Requirement: Management Team or Staff Member");
