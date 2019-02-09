@@ -134,7 +134,7 @@ return msg.channel.send(pingembed);
    if (msg.content.startsWith(prefix + 'commands')) {
     msg.member.send({embed:
       {
-      "title": "Usage: =<command>",
+      "title": "Default prefix: =",
       "description": "Need help? Join our Discord server.",
       "author": {
         "name": "AkelliBot Commands",
