@@ -6,17 +6,19 @@ Below here is an example of the code:
 client.on('message', async msg => {
    EXAMPLE COMMAND INSTRUCTION & MEANINGS:
       if (msg.content === 'example') { the { here signs the start of the scope(of the if sentence)
-         msg.reply('This is an example command !'); This command basicly replys to an user when the user uses a prefix + example in server it looks like this(keep in mind a! is the example prefix here): a! example it would send a message in the same channel saying YourName#1000, This is an example command ! 
+         msg.reply('This is an example command !'); This command basicly replys to an user when the user uses a prefix + example in server it looks like this(keep in mind a! is the example prefix here): a! example it would send a message in the same channel saying YourName#1000, This is an example command !
         } the } here signs the end of the scope(of the if sentence)
 });
 
 */
 //-------------------------------------------------------------------
-// This lines are here cuz they are constants, constants are basicly the stuff that you need in order for bot to run should be all declared on the begging of the code
+// This lines are here, because they are constants. Constants are basicly the stuff that you need in order for bot to run, they should all be declared on the begging of the code.
+
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const superagent = require("superagent");
-//const SphereAvatar = require("vue-sphere-avatar"); DON'T MIND IT PLS ALSO DON'T DELETE IT
+
+//CONST SphereAvatar = require("vue-sphere-avatar"); DON'T MIND IT PLS ALSO DON'T DELETE IT
 const osu = require('os-utils');
 const os = require('os');
 const cpu = require('windows-cpu');
@@ -33,31 +35,35 @@ const responseObject = {
     "PewDiePie":":clap: Its Meme Review !",
     "Hmmm":"Don't overthink dude"
   };
+
 // This line below basicly exports the warnings into the seperate file
 //  let warns = JSON.stringify(fs.readFileSync("./warnings.json", "utf8"));
+
 //------------------------|
 // BOT PREFIX: EXAMPLE: ! , a!, $ , b$ , b! etc. |
 var prefix = "=";  //-- This is the default prefix of the bot |
 //------------------------|
-// GREET JOIN AND LEAVE EVERYTHING IS FULLY EMBED AND WITH USERS AVATAR AND NAME
-// [THIS ONE ACTIVATES WHEN A NEW USER JOINS A SERVER]
+
+//// SERVER GREETINGS SECTION, (FULLY EMBED) ////
+
+// NEW USER JOINS THE SERVER (RESPONSE: DEFAULT CHANNEL)
 client.on('guildMemberAdd', member => {
     let guild = member.guild;
     let embed = new Discord.RichEmbed()
     .setColor('RANDOM')
-    .addField("Welcome to the server")       
-    .setTitle(member)                   
+    .addField("Welcome to the server")
+    .setTitle(member)
     .setImage(member.user.avatarURL)
     .setTimestamp()
     guild.defaultChannel.send(embed);
 });
- // [THIS ONE ACTIVATES WHEN A USER LEAVES A SERVER] 
+ // USER LEAVES THE SERVER (RESPONSE: DEFAULT CHANNEL)
   client.on('guildMemberRemove', member => {
     let guild = member.guild;
     let embed = new Discord.RichEmbed()
     .setColor('RANDOM')
-    .addField("Farewell, mister")       
-    .setTitle(member.user.tag)                   
+    .addField("Farewell, mister")
+    .setTitle(member.user.tag)
     .setImage(member.user.avatarURL)
     .setTimestamp()
     guild.defaultChannel.send(embed);
@@ -67,11 +73,12 @@ client.on('guildMemberAdd', member => {
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
     console.log('I am online !');
-    console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
+    console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
     client.user.setActivity(`=help | ${client.guilds.size} servers`, { type: 'PLAYING' })
     .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : `=help | ${client.guilds.size} servers`}`))
     .catch(console.error);
   });
+
 //// SHORTCUT TEXTS IN THE JAVASCRIPT (CODE): ////
 
 client.on('message', async msg => {
@@ -99,9 +106,12 @@ client.on('message', async msg => {
      .setTimestamp(new Date())
      .setFooter(`Requested by ${msg.author.tag}`);
 
-     
- return msg.channel.send(pingembed);
-  }
+return msg.channel.send(pingembed);
+}
+
+//// BOT INTRODUCTION SECTION: HELP & COMMANDS CMD:
+
+  // HELP CMD (EMBED)
   if (msg.content.startsWith(prefix + 'help')) {
     msg.channel.send({embed:{
       "title": "",
@@ -117,9 +127,10 @@ client.on('message', async msg => {
       "icon_url": "https://cdn.discordapp.com/avatars/534003592542027786/10199bbc68d2c69dea28e76772e175ba.png?size=2048"
       }
       }
-});
-   }
-   // COMMANDS CMD THAT DISPLAYS ALL OF THE CURRENT COMMANDS IN A NICE EMBED
+      });
+      }
+
+   // COMMANDS CMD (EMBED)
    if (msg.content.startsWith(prefix + 'commands')) {
     msg.member.send({embed:
     {
@@ -143,7 +154,7 @@ msg.reply('I\'ve sent you a PM! 🤳');
         msg.member.send(msg.author.avatarURL);
         msg.reply('I will send you your profile picture!');
         }
-   
+
        // AVATAR @USER CMD
        if (msg.content.startsWith(prefix + 'avatar')){
         let member = msg.mentions.members.first();
@@ -179,9 +190,11 @@ msg.reply('I\'ve sent you a PM! 🤳');
         .addField(`Hinami System Time`, `${prettyMs(osu.processUptime())}`, true)
         .addField(`Datacentre Server Time`, `${prettyMs(osu.sysUptime())}`, true)
         msg.channel.send(datainfoEmbed)
-        
+
       } catch (err) {console.log("Error With Stats - Please see below\n"+err)}
 }
+
+    // SERVERINFO CMD (EMBED)
 if (msg.content.startsWith(prefix + 'server')){
   let online = msg.guild.members.filter(member => member.user.presence.status !== 'offline');
   let day = msg.guild.createdAt.getDate()
@@ -206,14 +219,15 @@ if (msg.content.startsWith(prefix + 'server')){
    msg.channel.send(serverembed);
 }
 
+ // CREDITS CMD (EMBED)
 if (msg.content.startsWith(prefix + 'credits')){
 
     let ccreator = ("TheBestGamerYT#6781 and MarkF#4978");
-    
+
     let ccommunity = ("Everyone that supports us!");
-    
+
     let chosting = ("Heroku Services, www.heroku.com");
-    
+
     let bicon = client.user.displayAvatarURL;
     let embed = new Discord.RichEmbed()
             .setColor("#9B59B6")
@@ -221,9 +235,10 @@ if (msg.content.startsWith(prefix + 'credits')){
             .addField("Developed by:", ccreator)
             .addField("Ideas:", ccommunity)
             .addField("Bot Hosting:", chosting)
-      
+
             msg.channel.send({embed: embed});
   }
+
 // SOCIAL MEDIA CMD
   if (msg.content.startsWith(prefix + 'socialmedia')){
     msg.channel.send({embed:{
@@ -258,7 +273,7 @@ if (msg.content.startsWith(prefix + 'credits')){
     ]
     }
     });
-}
+    }
 
 // BOT INVITATION CMD:
 if (msg.content.startsWith(prefix + 'invite')){
@@ -278,19 +293,26 @@ if (msg.content.startsWith(prefix + 'invite')){
    });
    }
 
-// |FUN COMMANDS|----------------------> [Current Cmds: Dog,Cat,Meme,Boob,Slots,8ball,haveibeenpwned,poke,weed,hi,wave] <----------------------------|
+//// FUN COMMANDS:
+
+// POKE CMD
 if (msg.content.startsWith(prefix + 'poke')){
 let member = msg.mentions.members.first();
 msg.channel.send(`${member} has been poked by ${msg.author}`);
 }
+
+// HI CMD
 if (msg.content.startsWith(prefix + 'hi')){
 msg.channel.send('hi there how are you 👋');
 }
+
+// HAND WAVE CMD
 if (msg.content.startsWith(prefix + 'wave')){
 let member = msg.mentions.members.first();
 msg.channel.send(`${member} , ${msg.author} decited to say hi to you 👋`);
 }
 
+// WEED CMD
 if (msg.content.startsWith(prefix + 'weed')){
   return msg.channel.send("**Smoking!**").then(async msg => {
     setTimeout(() => {
@@ -322,6 +344,8 @@ if (msg.content.startsWith(prefix + 'weed')){
     }, 6000);
   });
 }
+
+// HAVEIBEENPWNED CMD
 if (msg.content.startsWith(prefix + 'haveibeenpwned')){
   await msg.delete(300);
   let {
@@ -340,6 +364,8 @@ if (msg.content.startsWith(prefix + 'haveibeenpwned')){
   })
   msg.author.send(out);
 }
+
+// DOG CMD
 if (msg.content.startsWith(prefix +'dog')){
   let {
     body
@@ -351,6 +377,8 @@ const dogembed = new Discord.RichEmbed()
     .setImage(body.url)
 msg.channel.send(dogembed);
 }
+
+// CAT CMD
 if (msg.content.startsWith(prefix + 'cat')){
   let {
     body
@@ -363,6 +391,7 @@ const catembed = new Discord.RichEmbed()
 msg.channel.send(catembed);
 }
 
+// MEME CMD
 if (msg.content.startsWith(prefix + 'meme')){
     let {
         body
@@ -374,6 +403,8 @@ if (msg.content.startsWith(prefix + 'meme')){
         .setImage(body.url)
     msg.channel.send(memembed);
 }
+
+// BOOB CMD (FAKE NSFW)
 if (msg.content.startsWith(prefix + 'boob')){
   let {
     body
@@ -386,6 +417,7 @@ const boobembed = new Discord.RichEmbed()
 msg.channel.send(boobembed);
 }
 
+// SLOT MACHINE CMD
 if (msg.content.startsWith(prefix + 'slots')){
   if (!msg.guild.member(client.user).hasPermission("SEND_MESSAGES")) return msg.author.send('I don\'t have permission to Send Messages. Please enable send messages for my role!');
 
@@ -413,6 +445,7 @@ if (msg.content.startsWith(prefix + 'slots')){
     }
 }
 
+// 8 BALL CMD
 if (msg.content.startsWith(prefix + '8ball')){
   if (!args[2]) return msg.reply("Please ask a full question!");
   let replies = ["Yes, Certainly :8ball:", "No, Never :8ball:", "Please ask again :8ball:"]
@@ -434,8 +467,9 @@ if (responseObject[msg.content]){
   msg.channel.send(responseObject[msg.content]);
 }
 
-// |ADMINISTRATIVE COMMANDS|----------------------> [Current Cmds: Ban,Kick,Report,Poll,Purge,Mute,Warn,Setgame,SetPrefix] <----------------------------|
+//// ADMINISTRATION COMMANDS SECTION [Current Cmds: Ban,Kick,Report,Poll,Purge,Mute,Warn,Setgame,SetPrefix] <----------------------------|
 
+// BAN COMMAND:
 if (msg.content.startsWith(prefix + 'ban')) {
   const banlog = msg.guild.channels.find(channel => channel.name === 'mod-logs');
   const mod = msg.author;
@@ -444,7 +478,7 @@ if (msg.content.startsWith(prefix + 'ban')) {
   let user = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
 if(!user)
   return msg.reply("Please mention a valid member of this server");
-if(!user.bannable) 
+if(!user.bannable)
   return msg.reply("I cannot ban this user! Do they have a higher role? Do I have ban permissions?");
 
 let reason = args.slice(1).join(' ');
@@ -460,6 +494,8 @@ await user.ban(reason)
             .setColor('#D9D900')
         banlog.send(banembed)
 }
+
+// KICK COMMAND:
 if (msg.content.startsWith(prefix + 'kick')){
   const kicklog = msg.guild.channels.find(channel => channel.name === 'mod-logs');
   const mod = msg.author;
@@ -468,7 +504,7 @@ if(!msg.member.roles.some(r=>["Akelli Staff"].includes(r.name)) )
   let user = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
       if(!user)
         return msg.reply("Please mention a valid member of this server");
-      if(!user.kickable) 
+      if(!user.kickable)
         return msg.reply("I cannot kick this user! Do they have a higher role? Do I have kick permissions?");
       let reason = args.slice(1).join(' ');
       if(!reason) reason = "No reason provided";
@@ -483,6 +519,7 @@ if(!msg.member.roles.some(r=>["Akelli Staff"].includes(r.name)) )
     kicklog.send(kickembed)
 }
 
+// REPORT COMMAND:
 if(msg.content.startsWith(prefix + 'report')){
   if(!msg.member.roles.some(r=>["AC Management","Akelli Staff"].includes(r.name)) )
   return msg.reply("you don't have sufficient access to execute this command! \n Requirement: Management Team or Staff Moderator");
@@ -504,6 +541,8 @@ if(msg.content.startsWith(prefix + 'report')){
         .setTimestamp()
     msg.channel.send(embed);
 }
+
+// POLL COMMAND:
 if (msg.content.startsWith(prefix + 'poll')){
   if(!msg.member.roles.some(r=>["AC Management","Akelli Staff"].includes(r.name)) )
   return msg.reply("you don't have sufficient access to execute this command! \n Requirement: Management Team or Staff Moderator");
@@ -512,17 +551,17 @@ if (msg.content.startsWith(prefix + 'poll')){
 		msg.channel.send('Invalid permissions.');
 		return;
 	}
-    
-    // Check for input
+
+    // (CHECK FOR INPUT)
     if (!args[0]) return msg.channel.send('Proper usage: a.poll <question>');
-    
-    // Create Embed
+
+    // (CREATE EMBED)
     const embed = new Discord.RichEmbed()
         .setColor("#ffffff") //To change color do .setcolor("#fffff")
         .setFooter('React to Vote.')
         .setDescription(args.join(' '))
         .setTitle(`Poll Created By ${msg.author.username}`);
-        
+
     let msgSent = await msg.channel.send(embed)
         .then(function (msgSent) {
             msgSent.react("❎");
@@ -532,20 +571,23 @@ if (msg.content.startsWith(prefix + 'poll')){
             console.log(error);
         });
 }
+
+// PURGE <AMMOUNT> COMMAND:
 if (msg.content.startsWith(prefix + 'purge')){
     if (!msg.guild.member(client.user).hasPermission('MANAGE_MESSAGES')) return msg.channel.send(':no_entry `I do not have the correct permissions.`').catch(console.error);
     if (!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.channel.send(":no_entry: `Sorry, but you do not have valid permissions! If you beleive this is a error, contact an owner.`");
     if (isNaN(args[1])) return msg.channel.send(':warning: `Please supply a valid amount of messages to purge`');
     if (args[1] > 100) return msg.channel.send(':warning: `Please supply a number less than 100`');
             msg.channel.bulkDelete(args[1]);
-            var cleanEmbed = new Discord.RichEmbed()            
-            .setAuthor('Akelli Cleaning Service')
+            var cleanEmbed = new Discord.RichEmbed()
+            .setAuthor('Akelli Channel Cleaning')
             .setDescription(`Cleaned **${args[1]}** messages :white_check_mark:`)
-            .setFooter('Requested By ' + msg.author.tag, msg.author.avatarURL)
+            .setFooter('Requested by ' + msg.author.tag, msg.author.avatarURL)
             .setColor('#ffffff');
             msg.channel.send(cleanEmbed);
 }
 
+// MUTE @USER COMMAND:
 if (msg.content.startsWith(prefix + 'mute')){
     if (!msg.member.hasPermissions ('MUTE_MEMBERS')) return msg.channel.send("You need **MUTE MEMBERS** permissions in order to use this command.")
     const modlog = msg.guild.channels.find(channel => channel.name === 'mod-logs');
@@ -590,12 +632,13 @@ if (msg.content.startsWith(prefix + 'mute')){
             .addField('Moderator', `${mod}`)
             .setColor('#D9D900')
         modlog.send(muteembed)
-  
-  
+
+
 }
 
+// WARN @USER <REASON COMMAND
 if (msg.content.startsWith(prefix + 'warn')){
-//COMMAND USAGE EXAMPLE !warn @user <reason>
+
 if (!msg.member.hasPermission("KICK_MEMBERS")) return msg.reply("No can do pal!");
 let wUser = msg.guild.member(msg.mentions.users.first()) || msg.guild.members.get(args[0])
 if (!wUser) return message.reply("Couldn't find them yo");
@@ -612,30 +655,32 @@ let warnEmbed = new Discord.RichEmbed()
     .addField("Reason", reason);
 
 let warnchannel = msg.guild.channels.find(`name`, "mod-logs");
-if (!warnchannel) return msg.reply("Couldn't find channel");
+if (!warnchannel) return msg.reply("Couldn't find channel. Make sure you create the mod-logs channel!");
 
 warnchannel.send(warnEmbed);
 
 }
 
+// SET GAME ACTIVITY STATUS OF THE BOT MANUALLY (WITHOUT ENTERING SCRIPT/CODE)
 if (msg.content.startsWith(prefix + 'setgame')) {
   if(!msg.member.roles.some(r=>["AC Management","Akelli Staff"].includes(r.name)) )
-  return msg.reply("you don't have sufficient access to execute this command! \n Requirement: Management Team or Staff Moderator");
+  return msg.reply("you don't have sufficient access to execute this command! \n Requirement: Management Team or Staff Member");
 
   let result = args.slice(1).join(' ');
 
   client.user.setActivity(result);
-  msg.reply("Command accepted! \nNew game activity message set!");
+  msg.reply("command accepted! \nNew game activity message set!");
   }
 
+// PREFIX <PREFIX> COMMAND
 if (msg.content.startsWith(prefix + 'setprefix')){
   if(!msg.member.roles.some(r=>["AC Management","Akelli Staff"].includes(r.name)) )
-  return msg.reply("you don't have sufficient access to execute this command! \n Requirement: Management Team or Staff Moderator");
+  return msg.reply("you don't have sufficient access to execute this command! \n Requirement: Management Team or Staff Member");
 
   let result = args.slice(1).join(' ');
 
   client.user.setPrefix(result);
-  msg.reply("Command accepted! \nNew Prefix has been set!");
+  msg.reply("command accepted! \nNew Prefix has been set!");
 }
 
 });
