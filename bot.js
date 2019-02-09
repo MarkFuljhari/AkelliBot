@@ -37,7 +37,7 @@ const responseObject = {
 //  let warns = JSON.stringify(fs.readFileSync("./warnings.json", "utf8"));
 //------------------------|
 // BOT PREFIX: EXAMPLE: ! , a!, $ , b$ , b! etc. |
-var prefix = "a! ";  //-- This is the default prefix of the bot |
+var prefix = "=";  //-- This is the default prefix of the bot |
 //------------------------|
 // GREET JOIN AND LEAVE EVERYTHING IS FULLY EMBED AND WITH USERS AVATAR AND NAME
 // [THIS ONE ACTIVATES WHEN A NEW USER JOINS A SERVER]
@@ -68,8 +68,8 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
     console.log('I am online !');
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-    client.user.setActivity(`v! help | ${client.guilds.size} Servers`, { type: 'PLAYING' })
-    .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : `v! help | ${client.guilds.size} Servers`}`))
+    client.user.setActivity(`=help | ${client.guilds.size} servers`, { type: 'PLAYING' })
+    .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : `=help | ${client.guilds.size} servers`}`))
     .catch(console.error);
   });
 //// SHORTCUT TEXTS IN THE JAVASCRIPT (CODE): ////
