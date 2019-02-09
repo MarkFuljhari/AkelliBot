@@ -135,7 +135,7 @@ client.on('message', async msg => {
     }
     }
 });
-msg.reply('Check your DMs !');
+msg.reply('I\'ve sent you a PM! 🤳');
    }
 
        // MYAVATAR CMD
