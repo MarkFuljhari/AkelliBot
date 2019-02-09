@@ -208,11 +208,11 @@ if (msg.content.startsWith(prefix + 'server')){
 
 if (msg.content.startsWith(prefix + 'credits')){
 
-    let ccreator = ("TheBestGamerYT#6781 and MarkF#4978.");
+    let ccreator = ("TheBestGamerYT#6781 and MarkF#4978");
     
-    let ccommunity = ("The entire beautiful community!");
+    let ccommunity = ("Everyome that supports us!");
     
-    let chosting = ("TownHosting by Heroku.");
+    let chosting = ("Heroku Services, www.heroku.com");
     
     let bicon = client.user.displayAvatarURL;
     let embed = new Discord.RichEmbed()
