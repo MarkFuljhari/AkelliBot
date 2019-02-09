@@ -51,7 +51,7 @@ client.on('guildMemberAdd', member => {
     let guild = member.guild;
     let embed = new Discord.RichEmbed()
     .setColor('RANDOM')
-    .addField("Welcome to the server")
+    .addField("Welcome")
     .setTitle(member)
     .setImage(member.user.avatarURL)
     .setTimestamp()
@@ -62,7 +62,7 @@ client.on('guildMemberAdd', member => {
     let guild = member.guild;
     let embed = new Discord.RichEmbed()
     .setColor('RANDOM')
-    .addField("Farewell, mister")
+    .addField("Sad to say: Goodbye!")
     .setTitle(member.user.tag)
     .setImage(member.user.avatarURL)
     .setTimestamp()
@@ -72,8 +72,8 @@ client.on('guildMemberAdd', member => {
 //// CONSOLE REPLY & GAME ACTIVITY STATUS OF THE BOT: ////
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
-    console.log('I am online !');
-    console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
+    console.log('I am online on DiscordApp.');
+    console.log(`Bot has woken up, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
     client.user.setActivity(`=help | ${client.guilds.size} servers`, { type: 'PLAYING' })
     .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : `=help | ${client.guilds.size} servers`}`))
     .catch(console.error);
@@ -88,26 +88,7 @@ client.on('message', async msg => {
 
   if(msg.content.indexOf(prefix) !== 0) return;
 // |MISC COMMANDS|----------------------> [Current Cmds: Ping,Help,commands,myavatar,avatar,stats,server,credits,socialmedia,invite] <----------------------------|
-  if (msg.content.startsWith(prefix + 'ping')) {
- //   const t = await msg.channel.send("Ping ?");  DON'T DELETE THIS
- //   t.edit(`Pong! Latency is **${t.createdTimestamp - msg.createdTimestamp}**ms. API Latency is **${Math.round(client.ping)}**ms`); DON'T DELETE THIS EITHER
- // CUZ ITS JUST THE CODE FOR THE OLD STYLE OF PING CMD
- let msgping1 = new Date();
 
- let botping = new Date() - msg.createdAt;
-
- let msgping2 = new Date() - msgping1;
-
- let pingembed = new Discord.RichEmbed()
-     .setColor("RANDOM")
-     .addField('API Ping : ', Math.floor(botping) + 'ms')
-     .addField('Bot Ping : ', Math.floor(botping) + 'ms')
-     .addField('Message Ping : ', '~' + Math.round(msgping2) + 'ms')
-     .setTimestamp(new Date())
-     .setFooter(`Requested by ${msg.author.tag}`);
-
-return msg.channel.send(pingembed);
-}
 
 //// BOT INTRODUCTION SECTION: HELP & COMMANDS CMD:
 
@@ -115,14 +96,14 @@ return msg.channel.send(pingembed);
   if (msg.content.startsWith(prefix + 'help')) {
     msg.channel.send({embed:{
       "title": "",
-      "description": "Hi! I'm AkelliBot! \nI am 24/7 online & being developed by:\nAkelli Company's Developers (TeamCo7Clan) \nFor a list of commands enter **=commands** \n\nDo you wish to add me in your server? \nEnter **=invite** \n\nNeed support? Join our server!\nhttps://discord.gg/j39xBQa",
+      "description": "Hi! I'm AkelliBot! \nI am developed by my Management Team and incredible Staff.\nI am very intelligent and I contain entertaining & information commands. \n\nFor a list of commands send **=commands** \n\nDo you wish to add Akelli in your server? \nSend **=invite** \n\nNeed support? Join our server!\nhttps://discord.gg/j39xBQa",
       "color": 3447003,
       "footer": {
-      "text": "© Copyright Akelli Company, @akellicompany"
+      "text": "© Akelli Company, @akellicompany"
 
       },
       "author": {
-      "name": "Akelli Help",
+      "name": "Akelli Help & Introduction",
       "url": "https://thebestgameryt.github.io/AkelliBot/",
       "icon_url": "https://cdn.discordapp.com/avatars/534003592542027786/10199bbc68d2c69dea28e76772e175ba.png?size=2048"
       }
@@ -147,11 +128,11 @@ return msg.channel.send(pingembed);
       "fields": [
         {
           "name": "» Information",
-          "value": "=myavatar, =avatar, =stats, =serverinfo, =credits, =socialmedia, =invite",
+          "value": "=ping, =myavatar, =avatar, =stats, =serverinfo, =credits, =socialmedia, =invite",
           "inline": false
         },
         {
-          "name": "» Fun",
+          "name": "» Entertainment",
           "value": "=poke, =hi, =weed, =haveibeenpwned, =dog, =cat, =meme, =boob, =slots, =8ball",
           "inline": false
         },
@@ -172,6 +153,24 @@ msg.reply('I\'ve sent you a PM! 🤳');
    }
 
      //// INFORMATION SECTION ////
+
+     if (msg.content.startsWith(prefix + 'ping')) {
+    //   const t = await msg.channel.send("Ping ?");  DON'T DELETE THIS
+    //   t.edit(`Pong! Latency is **${t.createdTimestamp - msg.createdTimestamp}**ms. API Latency is **${Math.round(client.ping)}**ms`); DON'T DELETE THIS EITHER
+    let msgping1 = new Date();
+    let botping = new Date() - msg.createdAt;
+    let msgping2 = new Date() - msgping1;
+
+    let pingembed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .addField('Discord API Ping: ', Math.floor(botping) + 'ms')
+        .addField('Bot Ping: ', Math.floor(botping) + 'ms')
+        .addField('Message Ping: ', '~' + Math.round(msgping2) + 'ms')
+        .setTimestamp(new Date())
+        .setFooter(`Requested by ${msg.author.tag}`);
+
+   return msg.channel.send(pingembed);
+   }
 
        // MYAVATAR CMD
        if (msg.content.startsWith(prefix + 'myavatar')){
@@ -251,7 +250,7 @@ if (msg.content.startsWith(prefix + 'credits')){
 
     let ccommunity = ("Everyone that supports us!");
 
-    let chosting = ("Heroku Services, www.heroku.com");
+    let chosting = ("Heroku Services Company");
 
     let bicon = client.user.displayAvatarURL;
     let embed = new Discord.RichEmbed()
@@ -318,7 +317,7 @@ if (msg.content.startsWith(prefix + 'invite')){
    });
    }
 
-       //// FUN COMMANDS: ////
+       //// ENTERTAINMENT COMMANDS: ////
 
 // POKE CMD
 if (msg.content.startsWith(prefix + 'poke')){
@@ -397,7 +396,7 @@ if (msg.content.startsWith(prefix +'dog')){
 } = await superagent
     .get(`https://random.dog/woof.json`);
 const dogembed = new Discord.RichEmbed()
-    .setTitle("Aww... Doggo!")
+    .setTitle("Aww... Doggie!")
     .setColor("RANDOM")
     .setImage(body.url)
 msg.channel.send(dogembed);
@@ -436,7 +435,7 @@ if (msg.content.startsWith(prefix + 'boob')){
 } = await superagent
     .get(`http://api.oboobs.ru/boobs/0/1/random`);
 const boobembed = new Discord.RichEmbed()
-    .setTitle("Look at thoose mellons !")
+    .setTitle("Look at those mellon boobies! SIKE! You're naughty.")
     .setColor("RANDOM")
     .setImage(body.url)
 msg.channel.send(boobembed);
@@ -472,8 +471,8 @@ if (msg.content.startsWith(prefix + 'slots')){
 
 // 8BALL CMD
 if (msg.content.startsWith(prefix + '8ball')){
-  if (!args[2]) return msg.reply("Please ask a full question!");
-  let replies = ["Yes, Certainly :8ball:", "No, Never :8ball:", "Please ask again :8ball:"]
+  if (!args[2]) return msg.reply("please ask a full question!");
+  let replies = ["Why ask me that? :laughing:","Yes, Certainly :8ball:", "No, Never :8ball:", "Please ask again :8ball:"]
   let result = Math.floor((Math.random() * replies.length));
 
   let question = args.slice().join(" ");
@@ -498,16 +497,16 @@ if (responseObject[msg.content]){
 if (msg.content.startsWith(prefix + 'ban')) {
   const banlog = msg.guild.channels.find(channel => channel.name === 'mod-logs');
   const mod = msg.author;
-  if(!msg.member.roles.some(r=>["Akelli Staff"].includes(r.name)) )
-  return msg.reply("Sorry, you don't have permissions to use this!");
+  if(!msg.member.roles.some(r=>["AC Management","Akelli Staff"].includes(r.name)) )
+  return msg.reply("you don/'t have permission to use that!");
   let user = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
 if(!user)
-  return msg.reply("Please mention a valid member of this server");
+  return msg.reply("please mention a valid member of this server.");
 if(!user.bannable)
-  return msg.reply("I cannot ban this user! Do they have a higher role? Do I have ban permissions?");
+  return msg.reply("unable to ban.\nIs this user a higher/the highest member?\nMake sure I have enough privileges.");
 
 let reason = args.slice(1).join(' ');
-if(!reason) reason = "No reason provided";
+if(!reason) reason = "No reason provided by executer.";
 
 await user.ban(reason)
   .catch(error => msg.reply(`Sorry ${mod} I couldn't ban because of : ${error}`));
@@ -524,15 +523,15 @@ await user.ban(reason)
 if (msg.content.startsWith(prefix + 'kick')){
   const kicklog = msg.guild.channels.find(channel => channel.name === 'mod-logs');
   const mod = msg.author;
-if(!msg.member.roles.some(r=>["Akelli Staff"].includes(r.name)) )
-  return msg.reply("Sorry, you don't have permissions to use this!");
+if(!msg.member.roles.some(r=>["AC Management","Akelli Staff"].includes(r.name)) )
+  return msg.reply("you don/'t have permission to use that!");
   let user = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
       if(!user)
-        return msg.reply("Please mention a valid member of this server");
+        return msg.reply("please mention a valid member of this server");
       if(!user.kickable)
-        return msg.reply("I cannot kick this user! Do they have a higher role? Do I have kick permissions?");
+        return msg.reply("unable to kick.\nIs this user a higher/the highest member?\nMake sure I have enough privileges.");
       let reason = args.slice(1).join(' ');
-      if(!reason) reason = "No reason provided";
+      if(!reason) reason = "No reason provided by executer.";
       await user.kick(reason)
         .catch(error => msg.reply(`Sorry ${msg.author} I couldn't kick because of : ${error}`));
         const kickembed = new Discord.RichEmbed()
@@ -547,14 +546,14 @@ if(!msg.member.roles.some(r=>["Akelli Staff"].includes(r.name)) )
 // REPORT @USER <REASON> COMMAND:
 if(msg.content.startsWith(prefix + 'report')){
   if(!msg.member.roles.some(r=>["AC Management","Akelli Staff"].includes(r.name)) )
-  return msg.reply("you don't have sufficient access to execute this command! \n Requirement: Management Team or Staff Moderator");
+  return msg.reply("you don't have sufficient access to execute this command! \n Requirement: Management Team or Staff Member.");
 
     var logs = msg.guild.channels.find('name', 'mod-logs');
     let member = msg.mentions.members.first() || msg.guild.members.get(args[0]);
     if (!member)
-        return msg.reply("Please mention a valid member of this server.");
+        return msg.reply("please mention a valid member of this server.");
     let reason = args.slice(1).join(' ');
-    if (!reason) reason = "No reason provided.";
+    if (!reason) reason = "No reason provided by executer.";
     let embed = new Discord.RichEmbed()
         .setColor('RANDOM')
         .setThumbnail(msg.author.avatarURL)
@@ -570,7 +569,7 @@ if(msg.content.startsWith(prefix + 'report')){
 // POLL COMMAND:
 if (msg.content.startsWith(prefix + 'poll')){
   if(!msg.member.roles.some(r=>["AC Management","Akelli Staff"].includes(r.name)) )
-  return msg.reply("you don't have sufficient access to execute this command! \n Requirement: Management Team or Staff Moderator");
+  return msg.reply("you don't have sufficient access to execute this command! \n Requirement: Management Team or Staff Member");
 
     if (!msg.member.roles.find("name", "@everyone")) { //Whatever role you want, I pick @everyone because everyone can use this command
 		msg.channel.send('Invalid permissions.');
@@ -661,7 +660,7 @@ if (msg.content.startsWith(prefix + 'mute')){
 
 }
 
-// WARN @USER <REASON COMMAND
+// WARN @USER <REASON> COMMAND
 if (msg.content.startsWith(prefix + 'warn')){
 
 if (!msg.member.hasPermission("KICK_MEMBERS")) return msg.reply("No can do pal!");
