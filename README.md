@@ -1,27 +1,29 @@
-## Welcome to Akelli Bot's GitHub Webpage, DiscordApp
+## Welcome to AkelliBot's GitHub Webpage, DiscordApp
 
-### About Discord Bot
+### About AkelliBot
 
-AkelliBot is a very intelligent bot, made by Akelli Company that is owned by [Mark Fuljhari](https://github.com/MarkFuljhari).
-The Company's sofware engineer: Developer & Head of DiscordBots Software Team, [TheBestGamerYT](https://github.com/thebestgameryt).
+AkelliBot is a very intelligent & entertaining bot that is maintained by 
+[Mark Fuljhari](https://github.com/MarkFuljhari) & [TheBestGamerYT](https://github.com/thebestgameryt).
+ Mark is the Owner & Developer.
+ TheBestGamerYT is the Lead Developer & Head of Software Team.
 
-Founded on January 13th 2019, Akelli Company is a very young and new Software Developer Team.
-Developing: discord.javascript software for Discord bots, https://discordapp.com
+Founded on January 13th 2019. Akelli Company is a very young and new Software Developer Team.
+Developing: 
+- JS Software for Discord Bots.
+- Body code for Discord Webhooks.
 
 We are inspired by innovation and together we have achieved many things, from which there many more of them yet to come.
 Persistent perfection is what we are after.
 
-### Join Us !
+### Join us!
 Join our [DiscordApp](https://discord.me/akellibot) server!
-Feel free to apply for staff! in #applications
+Feel free to apply for staff in #applications
 
 ### Support
 
-Having trouble with our bot or software?
-Do you see our software doing strange activity in logs without your legal or staff's permission?
-
-Report it to our team on [Discord](https://discord.me/akellibot).
-And please no fake reports or objection if something bad happened, until we initiate Doomsday Protocol from TeamCo7Clan.
+Need help with our bot/software?
+Do you have questions?
+Join our Discord server!
 
                                     © Copyright Akelli Company 2019
-                                    Powered by TeamCo7Clan members
+                                     Powered by TeamCo7Clan members
