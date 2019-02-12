@@ -1,12 +1,12 @@
 //--------------{Copyright  ©️ Akelli Company 2019}---------------
-/* This is a full code of Akelli Bot[The brains of the bot].
-This code basicly gives bot knowledge of what to do and how to act when you interact with him from a discord server
+/* This is a full code of Akelli Bot (The brains of the bot).
+This code basicly gives the bot knowledge of what to do and how to act when you interact with him within a Discord server or PM.
 Below here is an example of the code:
 --------------------------------------------------------------------------------
 client.on('message', async msg => {
    EXAMPLE COMMAND INSTRUCTION & MEANINGS:
-      if (msg.content === 'example') { the { here signs the start of the scope(of the if sentence)
-         msg.reply('This is an example command !'); This command basicly replys to an user when the user uses a prefix + example in server it looks like this(keep in mind a! is the example prefix here): a! example it would send a message in the same channel saying YourName#1000, This is an example command !
+      if (msg.content === 'example') { the { here signs the start of the scope (of the if sentence).
+         msg.reply('This is an example command !'); This command basicly replys to an user when the user uses a prefix + example in server it looks like this (keep in mind = is the example prefix here):  example it would send a message in the same channel saying YourName#1000, this is an example command!
         } the } here signs the end of the scope(of the if sentence)
 });
 
@@ -72,7 +72,7 @@ client.on('guildMemberAdd', member => {
 //// CONSOLE REPLY & GAME ACTIVITY STATUS OF THE BOT: ////
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
-    console.log('I am online on DiscordApp.');
+    console.log('Success! I am online on DiscordApp.');
     console.log(`Bot has woken up, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
     client.user.setActivity(`=help | ${client.guilds.size} servers`, { type: 'PLAYING' })
     .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : `=help | ${client.guilds.size} servers`}`))
@@ -498,7 +498,7 @@ if (msg.content.startsWith(prefix + 'ban')) {
   const banlog = msg.guild.channels.find(channel => channel.name === 'mod-logs');
   const mod = msg.author;
   if(!msg.member.roles.some(r=>["AC Management","Akelli Staff"].includes(r.name)) )
-  return msg.reply("you don/'t have permission to use that!");
+  return msg.reply("you don\'t have permission to use that!");
   let user = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
 if(!user)
   return msg.reply("please mention a valid member of this server.");
@@ -524,7 +524,7 @@ if (msg.content.startsWith(prefix + 'kick')){
   const kicklog = msg.guild.channels.find(channel => channel.name === 'mod-logs');
   const mod = msg.author;
 if(!msg.member.roles.some(r=>["AC Management","Akelli Staff"].includes(r.name)) )
-  return msg.reply("you don/'t have permission to use that!");
+  return msg.reply("you don\'t have permission to use that!");
   let user = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
       if(!user)
         return msg.reply("please mention a valid member of this server");
