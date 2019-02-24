@@ -46,31 +46,30 @@ var prefix = "=";  //-- This is the default prefix of the bot |
 
 //// SERVER GREETINGS SECTION, (FULLY EMBED) ////
 
-//when someone joins the server a embed will be sent to the Welcome channel
-bot.on('guildMemberAdd', message => {
-    let welcome = message.guild.channels.find(channel => channel.name === "servergreet");
-    if(!welcome) return;
-    
-    const welcomeembed = new Discord.RichEmbed()
-    .setColor("#15f153")
-    .setTitle(`${message.user.username}`)
-    .setDescription(`Welcome to ${message.guild.name} have a few beers on the house 🍻`)
-    .setTimestamp(new Date());
-    welcome.send(welcomeembed)
+// NEW USER JOINS THE SERVER (RESPONSE: DEFAULT CHANNEL)
+
+client.on('guildMemberAdd', member => {
+    let guild = member.guild;
+    let embed = new Discord.RichEmbed()
+    .setColor('RANDOM')
+    .addField("Welcome")
+    .setTitle(member)
+    .setImage(member.user.avatarURL)
+    .setTimestamp()
+    guild.defaultChannel.send(embed);
 });
 
-//when someone leaves the server it will also be sent in the Welcome channel
-bot.on('guildMemberRemove', message => {
-    let leave = message.guild.channels.find(channel => channel.name === "servergreet");
-    if(!leave) return;
-    
-    const leaveembed = new Discord.RichEmbed()
-    .setColor("#15f153")
-    .setTitle(`${message.user.username}`)
-    .setDescription(`well then leave without saying bye. Fine I don\'t care. \nwell he left ${message.guild.name} what are we gonna do now.`)
-    .setTimestamp(new Date());
-    leave.send(leaveembed)
-});
+ // USER LEAVES THE SERVER (RESPONSE: DEFAULT CHANNEL)
+  client.on('guildMemberRemove', member => {
+    let guild = member.guild;
+    let embed = new Discord.RichEmbed()
+    .setColor('RANDOM')
+    .addField("Sad to say: Goodbye!")
+    .setTitle(member.user.tag)
+    .setImage(member.user.avatarURL)
+    .setTimestamp()
+    guild.defaultChannel.send(embed);
+  });
 
 //// CONSOLE REPLY & GAME ACTIVITY STATUS OF THE BOT: ////
 client.on('ready', () => {
