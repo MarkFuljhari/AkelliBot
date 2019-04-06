@@ -3,5 +3,4 @@
 	"modrolename": "Moderator",
     "adminrolename": "Admin",
 	"prefix": "=",
-	"token": "process.env.BOT_TOKEN"
 }
