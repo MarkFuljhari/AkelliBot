@@ -1,0 +1,11 @@
+if(message.content.startsWith(prefix + 'id')) {
+    if (message.channel.type === "dm") return;   
+     message.channel.send(`**${message.author.username} **` + "Your ID is: " + `__${message.author.id}__`);
+  }
+  
+  if(message.content.startsWith(prefix + 'find-id')) {
+    if (message.channel.type === "dm") return;
+    let member = message.guild.member(message.mentions.users.first() || message.guild.get(args[0]));
+
+    message.channel.send(`**${member} **` + "His ID is: " + `__${member.id}__`);
+ }

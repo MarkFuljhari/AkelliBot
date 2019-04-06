@@ -1,0 +1,43 @@
+const Discord = require('discord.js');
+exports.run = (client, message, args) => {
+
+let slots = ["🍎", "🍌", "🍒", "🍓", "🍈"];
+let result1 = Math.floor((Math.random() * slots.length));
+let result2 = Math.floor((Math.random() * slots.length));
+let result3 = Math.floor((Math.random() * slots.length));
+let name = message.author;
+let icon = message.author.displayAvatarURL;
+try {
+if (slots[result1] === slots[result2] && slots[result3]) {
+    let wEmbed = new Discord.MessageEmbed()
+        .setFooter("You Won!", icon)
+        .setTitle(':slot_machine:Slots:slot_machine:')
+        .addField('Result:', slots[result1] + slots[result2] + slots[result3], true)
+        .setColor("#f4e842");
+    message.channel.send(wEmbed);
+} else {
+    let lembed = new Discord.RichEmbed()
+        .setFooter('You Lost!', icon)
+        .setTitle(':slot_machine:Slots:slot_machine:')
+        .addField('Result', slots[result1] + slots[result2] + slots[result3], true)
+        .setColor("#f4e842");
+    message.channel.send(lembed);
+};
+
+} catch (err) {console.log("Error with slots - Please see below\n"+err)}
+
+};
+
+
+exports.conf = {
+    enabled: true,
+    guildOnly: false,
+    aliases: ['slot','SLOTS'],
+    permLevel: 0
+  };
+  
+  exports.help = {
+    name: 'slots',
+    description: 'Start rolling this slot machine for a chance to win a jackpot ! ',
+    usage: 'slots'
+  };

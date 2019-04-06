@@ -1,0 +1,248 @@
+HastebinCmd:
+
+const hastebin = require('hastebin-gen-2');
+const Discord = require('discord.js')
+exports.run = (client, message, args, tools) => {
+  hastebin(args.join(' '), "js").then(r => {
+      var hastLink = r
+      const hastEmb = new Discord.RichEmbed()
+      .setColor(0xFFF000)
+
+      .setURL(hastLink)
+      .addField('Link: ', `${hastLink}`)
+       message.channel.send({embed: hastEmb})
+  }).catch(console.error);  
+};
+
+exports.conf = {
+    enabled: true,
+    guildOnly: false,
+    aliases: ['haste', 'bin'],
+    permLevel: 0
+  };
+  
+  exports.help = {
+    name: 'hastebin',
+    description: 'You can generate hastebin page :)',
+    usage: 'hastebin [type anything that you want to be in your hastebin here it can be up to 2000 words long(discord regulations) ]'
+  };
+
+SteamStoreCmd:
+
+const Discord = require('discord.js')
+var steam = require('steam-provider')
+var provider = new steam.SteamProvider();
+
+exports.run = (client, message, args) => {
+    let game = args[0]
+    let steampng = "https://cdn.discordapp.com/attachments/458004691402489856/470344660364034049/steam.png"
+    if (!game) return message.reply('Please Write a Game Name on Steam. Example: `steam portal 2`')
+    provider.search(game).then(result => {
+    provider.detail(result[0].id, "slovenia", "sl").then(results => {
+        console.log(results)
+    const embed = new Discord.RichEmbed()
+    .setAuthor('Steam Store', steampng)
+  .setColor("#36393F")
+    .setTitle(result[0].name)
+    .addField(`ID of the game`, result[0].id)
+    .setThumbnail(results.otherData.imageUrl)
+    .addField('Genres', results.genres)
+    .addField('Price', `Initial Price **${results.priceData.initialPrice}** \n With discount **${results.priceData.finalPrice}**`, true)
+    .addField('Platform', results.otherData.platforms, true)
+    .addField('Metacritics Score', results.otherData.metacriticScore, true)
+    .addField('Features', results.otherData.features, true)
+    .addField('Developer', results.otherData.developer, true)
+    .addField('Publisher', results.otherData.publisher)
+  .setColor("#36393F")
+    message.channel.send(embed).catch(e => {
+        console.log(e)
+        message.reply('Error For `' + game + '` game specified was not found')
+    })
+})
+})
+
+};
+
+exports.conf = {
+  enabled: true,
+  guildOnly: true,
+  aliases: ['steam-store','steamstore'],
+  permLevel: 0
+};
+
+exports.help = {
+  name: 'steam',
+  description: 'This is basicly a steam store on discord :D Its simple as that...',
+  usage: 'steam'
+};
+
+ShortenCmd:
+
+// We also want to check if they typed anything at all, if not run this
+  if (!args[0]) return message.channel.send('**Proper Usage: !shorten <URL> [title]**')
+ 
+  // First, we need to check if they entered an optional title
+  if (!args[1]) { // If the second argument in the message is undefined, run this
+   
+    shorten.shorten(args[0], function(res) { // This will run the shorten function and pass it 'res'
+      if (res.startsWith('Error:')) return message.channel.send('**Please enter a valid URL**'); // The only possible error here would be that it's not a valid URL.
+      let shortenEmbed1 = new Discord.RichEmbed()
+      .setAuthor(message.member.displayName, message.author.displayAvatarURL)
+      .setColor('#36393f')
+      .setDescription('Your link has been succesfully shortened !')
+      .addField('Your Link:', `**<${res}>**`)
+      message.channel.send(shortenEmbed1); // If no error encountered, it will return with the response in the res variable
+   
+    })
+   
+  } else { // If the second argument IS defined, run this
+   
+    shorten.custom(args[0], args[1], function(res) { // This is sort of the same thing from earlier, although this will pass the first and second arguments to the shortener, then return 'res'
+     
+      // There are a few possible error messages, so we can just tell them what the shortener says
+      if (res.startsWith('Error:')) return message.channel.send(`**${res}**`); // This will return the full error message
+      // Make sure you return, so it doesn't run the rest of the code
+      let shortenEmbed2 = new Discord.RichEmbed()
+      .setAuthor(message.member.displayName, message.author.displayAvatarURL)
+      .setColor('#36393f')
+      .setDescription('Your link has been succesfully shortened !')
+      .addField('Your Link:', `**<${res}>**`)
+      message.channel.send(shortenEmbed2);
+     
+    }) // We also can use <> to make sure it doesn't show an embed, now let's test it!
+   
+  }
+ 
+};
+
+exports.conf = {
+    enabled: true,
+    guildOnly: false,
+    aliases: ['shortener', 'link'],
+    permLevel: 0
+  };
+  
+  exports.help = {
+    name: 'shorten',
+    description: 'You can shorten a given link and add a title to him.',
+    usage: 'shorten [URL] [TITLE]'
+  };
+
+
+VerifyCmd:
+
+const Discord = require("discord.js");
+
+exports.run = async (bot, message, args) => {
+    message.delete();
+    let role = message.guild.roles.find(role => role.name === 'Verified');
+    if (message.channel.name !== 'verification') return message.reply('You must go to the channel #verification');
+    message.member.addRole(role);
+    if (message.member.roles.has(role.id)) {
+        let verifyEmbed = new Discord.RichEmbed()
+            .setAuthor(message.member.displayName, message.author.displayAvatarURL)
+            .setColor('#36393f')
+            .setDescription('Your account has already been verified!')
+        return message.channel.send((verifyEmbed));
+    } else {
+        let verifyEmbed = new Discord.RichEmbed()
+            .setAuthor(message.member.displayName, message.author.displayAvatarURL)
+            .setColor('#36393f')
+            .setDescription('Your account has been successfully verified.')
+        return message.channel.send((verifyEmbed));
+    }
+}
+
+exports.conf = {
+    enabled: true,
+    guildOnly: false,
+    aliases: ['verified', 'verification'],
+    permLevel: 0
+  };
+  
+  exports.help = {
+    name: 'verify',
+    description: 'You must have the Verified role.',
+    usage: 'verify'
+  };
+
+GetGifCmd:
+
+const Discord = require('discord.js')
+
+exports.run = (client, message, args, tools) => {
+
+var images = ["https://cdn.discordapp.com/attachments/424667806320033814/437807617965031424/unnamed_1.gif", "https://cdn.glitch.com/5df641e3-8d98-4abb-9045-d5482434003a%2FJake_pat.gif?1524497996034", "https://media.tenor.com/images/cdc004bbbaba6f60d8e62a1f127516e0/tenor.gif"];
+var rand = Math.floor(Math.random() * images.length);
+var randomImage = images[rand];
+
+const patEmb = new Discord.RichEmbed()
+.setColor(0xA901DB)
+.setImage(randomImage);
+const sadEmb = new Discord.RichEmbed()
+.setColor(0xA901DB)
+.setImage('https://media.giphy.com/media/Y4z9olnoVl5QI/giphy.gif');
+if(!args[0]) {
+  message.channel.send(`<@${message.author.id}> pat <@${message.author.id}>.. Oh wait! You can't pat yourself!`, {embed: sadEmb});
+  return;
+}
+
+if (!message.mentions.users.first()) return message.channel.send(`Please mention someone!`).then(msg => {
+    msg.delete(3000)
+  });
+message.channel.send(`<@${message.author.id}> pat ${args[0]}`, {embed: patEmb});
+
+
+}
+
+exports.conf = {
+    enabled: true,
+    guildOnly: false,
+    aliases: ['gif-get', 'gif'],
+    permLevel: 0
+  };
+  
+  exports.help = {
+    name: 'get-gif',
+    description: 'Using this command you are able to get other discord users ids.',
+    usage: 'get-gif'
+  };
+
+GoogleCmd:
+
+const Discord = require("discord.js");
+
+exports.run = async (client, message, args) => {
+
+
+
+    let google = args.slice(0).join('+');
+
+        let link = `https://www.google.com/search?q=` + google;
+        if(!link)return message.reply("Console error")
+        let embed = new Discord.RichEmbed()
+	
+    .setColor("RED")
+    .setTimestamp()
+    .addField('Action:', 'Searching on Google')
+	.addField("Word:", `${args.slice(0).join(' ')}`)
+	.addField('Link:', `${link}`)
+	.setFooter("You're avatar", message.author.avatarURL);
+          
+	message.channel.send(embed);
+	message.author.send(`You have searched for ${link} in ${ message.guild.name}`);
+  
+}
+
+exports.conf = {
+    enabled: true,
+    guildOnly: false,
+    aliases: ['gogle', 'gooogle'],
+    permLevel: 0
+  };
+  
+  exports.help = {
+    name: 'google',
+    description: 'You can google things up. Simple as that is this command !',
+    usage: 'google [enter your search term]'
+  };
