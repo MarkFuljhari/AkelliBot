@@ -4,8 +4,8 @@
 
 AkelliBot is a very intelligent & entertaining bot that is maintained by 
 [Mark Fuljhari](https://github.com/MarkFuljhari) & [TheBestGamerYT](https://github.com/thebestgameryt).
- Mark is the Owner & Developer.
- TheBestGamerYT is the Lead Developer & Head of Software Team.
+ Mark is the current Chief Executive Officer (CEO).
+ TheBestGamerYT is the Lead Developer & Chief Technology Officer (CTO).
 
 Founded on January 13th 2019. Akelli Company is a very young and new Software Developer Team.
 Developing: 
