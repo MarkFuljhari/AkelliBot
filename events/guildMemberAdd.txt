@@ -1,0 +1,22 @@
+//-----------------------------
+//BELOW IS MY MODIFIED VERSION OF CODE GAINED FROM AN IDIOTS GUIDE AND MODIFIED BY ME
+/*const Discord = require('discord.js');
+module.exports = (message, member) => {
+  let guild = message.guild;
+  const joinned = message.guild.channels.find(channel => channel.name === 'greets');
+
+    let embed = new Discord.RichEmbed()
+    .setColor('RANDOM')
+    .addField("Welcome")
+    .setTitle(member)
+    .setImage(member.user.avatarURL)
+    .setTimestamp()
+    joinned.send(embed);
+  };
+  */
+ // ------------------------
+ // BELOW IS A STANDARD NON MODIFIED CODE GAINED FROM AN IDIOTS GUIDE
+ //module.exports = member => {
+ // let guild = member.guild;
+//  guild.defaultChannel.sendMessage(`Please welcome ${member.user.username} to the server!`);
+//};

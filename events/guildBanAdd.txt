@@ -1,0 +1,20 @@
+//-----------------------------
+//BELOW IS MY MODIFIED VERSION OF CODE GAINED FROM AN IDIOTS GUIDE AND MODIFIED BY ME
+/*const Discord = require('discord.js');
+module.exports = (member,message) => {
+  const banned = message.guild.channels.find(channel => channel.name === 'Greets');
+    let guild = member.guild;
+    let embed = new Discord.RichEmbed()
+    .setColor('RANDOM')
+    .addField("was just banned")
+    .setTitle(member)
+    .setImage(member.user.avatarURL)
+    .setTimestamp()
+    banned.send(embed);
+  };
+*/
+//-----------------------------
+//BELOW IS MY MODIFIED VERSION OF CODE GAINED FROM AN IDIOTS GUIDE AND MODIFIED BY ME
+//  module.exports = (guild, user) => {
+ //   guild.defaultChannel.sendMessage(`${user.username} was just banned!`);
+//  };
